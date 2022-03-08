@@ -17,11 +17,27 @@ public class GameBoard {
     g.drawRect(260,65,30,30);
     g.drawRect(325,65,30,30);
   }  
-  public Array gameBoard = new Array[][];
-  public void moveRedPiece(int x, int y){
-    
+  public int[] gameBoard = new int[][];
+  public boolean moveRedPiece(Piece x, int fromX, int fromY, int toX, int toY){
+    if(toX==(fromX+1)||toX==(fromX-1)){
+      
+    }
+    else{
+      return false;
+    }
+    if(toY==(fromY+1)){
+      
+    }
+    else{
+      return false;
+    }
+    /*for(int row = 0; row < gameBoard.length; row++){
+      for(int col = 0;col < gameBoard[row].length;col++){
+        
+      }
+    }*/
   }
-  public void moveBluePiece(int x,int y){
+  public boolean moveBluePiece(Piece x){
     
   }
 }
