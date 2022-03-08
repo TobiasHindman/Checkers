@@ -19,14 +19,24 @@ public class GameBoard {
   }  
   public int[] gameBoard = new int[][];
   public boolean moveRedPiece(Piece x, int fromX, int fromY, int toX, int toY){
-    if(toX==(fromX+1)||toX==(fromX-1)){
-      
+    if(toX==(fromX+1)||toX==(fromX-1)){//if they only move by one
+      if(toX<gameBoard.length){//check for out of bounds
+        
+      }
+      else{
+        return false;
+      }
     }
     else{
       return false;
     }
-    if(toY==(fromY+1)){
-      
+    if(toY==(fromY+1)){//if they only move by one
+      if(toY<gameBoard[row].length){//check for out of bounds
+        
+      }
+      else{
+        return false;
+      }
     }
     else{
       return false;
