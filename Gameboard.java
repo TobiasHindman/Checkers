@@ -17,5 +17,12 @@ public class GameBoard {
     g.drawRect(260,65,30,30);
     g.drawRect(325,65,30,30);
   }  
+  public Array gameBoard = new Array[][];
+  public void moveRedPiece(int x, int y){
+    
+  }
+  public void moveBluePiece(int x,int y){
+    
+  }
 }
 
