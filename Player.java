@@ -31,11 +31,18 @@ public class Player
     {
       do
       {
-        System.out.print("Enter the cordinate: ");
+        System.out.print("Enter the x cordinate: ");
         row = kb.nextLine();
         row.toUpperCase();
       }while(!row.equals("a"));
-      run = false;
+
+      do
+      {
+        System.out.print("Enter the y cordinate: ");
+        col = kb.nextLine();
+        col.toUpperCase();
+      }while(!col.equals("a"));
+      run = false; 
     }
   }
 
