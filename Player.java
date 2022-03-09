@@ -1,17 +1,15 @@
 import java.util.*;
 
-public class Player
+public class Player 
 {
   private String player;
   private int numCheckers;
-  private boolean run; 
-  private Random rand = new Random();
-  private int num; 
+  private boolean run;
 
-  public Player(String p1)
+  public Player(String p1, int nchecker)
   {
     player = p1;
-    numCheckers = 12;
+    numCheckers = nchecker;
   }
 
   public String getPlayer()
@@ -21,41 +19,18 @@ public class Player
 
   public int getCheckers()
   {
-    return numCheckers; 
+    return numCheckers;
   }
 
-  public void ai()
-  {
-    numCheckers = 12;
-    player = "AI";
-
-    if (numCheckers == 0)
-    {
-      checkWin();
-    }
-
-    if(numCheckers < 12)
-    {
-      
-    }
-    else
-    {
-      num = rand.nextInt(); 
-    }
-    
-  }
-
-  public void checkWin()
+  public String checkWin()
   {
     if (numCheckers == 0)
     {
-      run = false; 
-      System.out.println(player +" lost");
+      return player + " lost";
     }
     else
     {
-      run = true;
-      System.out.println(player + " won");
+      return player + " won";
     }
   }
 }
