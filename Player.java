@@ -4,7 +4,10 @@ public class Player
 {
   private String player;
   private int numCheckers;
-  private boolean run;
+  private boolean run = true;
+  private Scanner kb = new Scanner(System.in);
+  private String row;  
+  private String col; 
 
   public Player(String p1, int nchecker)
   {
@@ -20,6 +23,20 @@ public class Player
   public int getCheckers()
   {
     return numCheckers;
+  }
+
+  public void switchPlayer()
+  {
+    while(run)
+    {
+      do
+      {
+        System.out.print("Enter the cordinate: ");
+        row = kb.nextLine();
+        row.toUpperCase();
+      }while(!row.equals("a"));
+      run = false;
+    }
   }
 
   public String checkWin()
