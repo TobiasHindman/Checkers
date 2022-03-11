@@ -12,9 +12,36 @@ public class Piece {
     public void move(int toXIndex, int toYIndex) {
         currentGameBoard.game[toXIndex -1][toYIndex -1] = currentGameBoard.game[xindex - 1][yindex - 1];
         currentGameBoard.game[xindex - 1][yindex - 1] = null;
+        xindex = toXIndex;
+        yindex = toYIndex;
     }
-    public void take(int fromXIndex, int fromYIndex, int toXIndex, int toYIndex) {
-        currentGameBoard.game[toXIndex -1][toYIndex -1] = currentGameBoard.game[fromXIndex - 1][fromYIndex - 1];
+    public void take(int takeXIndex, int takeYIndex, int toXIndex, int toYIndex) {
+        currentGameBoard.game[toXIndex -1][toYIndex -1] = currentGameBoard.game[xindex - 1][yindex - 1];
+        xindex = toXIndex;
+        yindex = toYIndex;
+    }
+    public boolean checkMove(int toXIndex, int toYIndex){
+        if(currentGameBoard[toXIndex][toYIndex] = null){
+            return true;
+        } 
+        else {
+            return false;
+        }
+    }
+    public boolean checkTake(int takeXIndex, int takeYIndex, intc toXIndex, int toYIndex){
+        if(color = "blue") {
+            if (toYIndex > takeYIndex && toXIndex > takeXIndex) {
+                return true;
+            }
+            else {return false;}
+        }
+        else if (color = "red") {
+            if (toYIndex < takeYIndex && toXIndex < takeXIndex) {
+                return true;
+            }
+            else {return false;}
+        }
+
     }
 }
 
