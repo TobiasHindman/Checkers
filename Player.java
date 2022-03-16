@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Player 
+public class Player extends Gameboard
 {
   private String player;
   private int numCheckers;
@@ -27,6 +27,7 @@ public class Player
 
   public String getPlayer()
   {
+    player.setColor(Color.BLUE);
     return player;
   }
 
