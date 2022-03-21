@@ -2,12 +2,14 @@ import java.awt.*;
 import javax.swing.*;
 public class Gameboard {
   public int[][] gameBoard = new int[8][8];
+  /*
   JFrame frame1 = new JFrame("My Drawing");
   Jpanel panel1 = new Jpanel();
   frame1.setSize(500, 500);
-  //panel1.setSize(300,300);
+  panel1.setSize(300,300);
   frame.setVisible(true);
-  //panel1.setVisible(true);
+  panel1.setVisible(true);
+*/
   public void generateBoard(int[][] gameboard, Graphics g){
     g.setColor(Color.BLACK);
     g.fillRect(200,200,400,400);
