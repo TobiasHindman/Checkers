@@ -83,7 +83,7 @@ class makeBoard extends Component{
     graph.fillRect(300,400,50,50);
     graph.fillRect(400,400,50,50);
     for(int row = 0; row < gameboard.length; row++){
-      for(int col = 0;col < gameboard[row].length;col++){
+      for(int col = 0;col < gameboard[row].length;col++)       {
         if(gameboard[row][col]==1){
           graph.setColor(Color.BLUE);
           graph.fillOval((row*50)+50,(col*50)+50,50,50);

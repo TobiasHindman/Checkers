@@ -8,10 +8,10 @@ public class Main(){
     int count = 0;
     while(hasWon){
       if((count%2)==0){
-        
+        //player 1's code
       }
       else{
-        
+        //player 2's code
       }
       count++;
     }
