@@ -1,10 +1,10 @@
 public class Piece {
-    private  Gameboard currentGameBoard;
+    Gameboard currentGameBoard = new Gameboard();
     private int xindex;
     private int yindex;
-    public int color;
+    public String color;
     public boolean isKing;
-    public piece(GameBoard currentBoard, int xindex1, int yindex1, String color1, boolean isKing1)  {
+    public Piece(Gameboard currentBoard, int xindex1, int yindex1, String color1, boolean isKing1)  {
         currentGameBoard = currentBoard;
         xindex = xindex1;
         yindex = yindex1;
@@ -15,10 +15,10 @@ public class Piece {
         if(checkMove(toXIndex, toYIndex))  {
             currentGameBoard.game[toXIndex -1][toYIndex -1] = currentGameBoard.game[xindex - 1][yindex - 1];
             currentGameBoard.game[xindex - 1][yindex - 1] = null;
-            if (color = "red") {
+            if (color.equals("red")) {
                 currentGameBoard.moveRedPiece(xindex, yindex, toXIndex, toYIndex);
             }
-            if (color = "blue") {
+            if (color.equals("blue")) {
                 currentGameBoard.moveBluePiece(xindex, yindex, toXIndex, toYIndex);
             }
             xindex = toXIndex;
@@ -44,13 +44,13 @@ public class Piece {
         }
     }
     public boolean checkTake(int takeXIndex, int takeYIndex, int toXIndex, int toYIndex){
-        if(color = "blue") {
+        if(color.equals("blue")) {
             if (toYIndex > takeYIndex && toXIndex > takeXIndex) {
                 return true;
             }
             else {return false;}
         }
-        else if (color = "red") {
+        else if (color.equals("red")) {
             if (toYIndex < takeYIndex && toXIndex < takeXIndex) {
                 return true;
             }
