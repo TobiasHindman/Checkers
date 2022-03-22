@@ -16,9 +16,9 @@ public class Player
     return player;
   }
 
-  public int getCheckers();
-  {
-    return numCheckers; 
-  }
+  //public int getCheckers();
+  //{
+    //return numCheckers; 
+  //}
   
 }
