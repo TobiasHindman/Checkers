@@ -1,18 +1,10 @@
 import java.awt.*;
-import javax.swing.*;
 public class Gameboard {
   public int[][] gameBoard = new int[8][8];
-  /*
-  JFrame frame1 = new JFrame("My Drawing");
-  Jpanel panel1 = new Jpanel();
-  frame1.setSize(500, 500);
-  panel1.setSize(300,300);
-  frame.setVisible(true);
-  panel1.setVisible(true);
-*/
   public void drawBoard(){
-    Frame gFrame = new Frame;
-    gFrame.add(new makeBoard());
+    int[][] arr = { { 1,1,1,1,1,1,1,1 }, { 1,1,1,1,1,1,1,1 },{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{-1,-1,-1,-1,-1,-1,-1,-1},{-1,-1,-1,-1,-1,-1,-1,-1} };
+    Frame gFrame = new Frame();
+    gFrame.add(new makeBoard(arr));
     gFrame.setSize(500,500);
     gFrame.setVisible(true);
   }  
@@ -45,11 +37,7 @@ public class Gameboard {
     else{
       return false;
     }
-    /*for(int row = 0; row < gameBoard.length; row++){
-      for(int col = 0;col < gameBoard[row].length;col++){
-        
-      }
-    }*/
+    return false;
   }
   public boolean moveBluePiece(int fromX, int fromY, int toX, int toY){
     if(toX==(fromX+1)||toX==(fromX-1)){//if they only move by one
@@ -79,6 +67,7 @@ public class Gameboard {
     else{
       return false;
     }
+    return false;
   }
 }
 
