@@ -1,8 +1,10 @@
 import java.util.*;
 
-public class Player extends Gameboard
+public class Player 
 {
   private String player;
+  //private Gameboard board;
+  private Piece play; 
   private int numCheckers;
   private String player2; 
   private String currentPlayer;
@@ -11,6 +13,8 @@ public class Player extends Gameboard
   private String row;  
   private int col; 
   private char cRow;
+  private String p1color;
+  private String p2color;
 
   public Player()
   {
@@ -18,21 +22,39 @@ public class Player extends Gameboard
     player2 = "Unkown";
     numCheckers = 12; 
   }
-  public Player(String p1, String p2)
+  
+  public Player(String p1, String p2, String color1, String color2)
   {
     player = p1;
     player2 = p2; 
+    p1color = color1;
+    p2color = color2; 
     numCheckers = 12;
   }
 
-  public String getPlayer()
+  public String getPlayer(String x)
   {
-    player.setColor(Color.BLUE);
+    player = x;
     return player;
   }
 
-  public String getPlayer2()
+  private String getColor1(Piece color1)
   {
+    p1color = color1;
+    p1color = "Blue";//needs to be changed
+    return p1color;
+  }
+
+  private String getColor2()
+  {
+    
+    p2color = "Red";//needs to be changed
+    return p2color;
+  }
+
+  public String getPlayer2(String y)
+  {
+    player2 = y; 
     return player2; 
   }
 
