@@ -1,8 +1,8 @@
 import java.awt.*;
 public class Gameboard {
   public int[][] gameBoard = new int[8][8];
+  int[][] arr = {{1,0,1,0,0,0,-1,0},{0,1,0,0,0,-1,0,-1},{1,0,1,0,0,0,-1,0},{0,1,0,0,0,-1,0,-1},{1,0,1,0,0,0,-1,0},{0,1,0,0,0,-1,0,-1},{1,0,1,0,0,0,-1,0},{0,1,0,0,0,-1,0,-1}};
   public void drawBoard(){
-    int[][] arr = { { 1,1,1,1,1,1,1,1 }, { 1,1,1,1,1,1,1,1 },{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{-1,-1,-1,-1,-1,-1,-1,-1},{-1,-1,-1,-1,-1,-1,-1,-1} };
     Frame gFrame = new Frame();
     gFrame.add(new makeBoard(arr));
     gFrame.setSize(500,500);
@@ -68,6 +68,22 @@ public class Gameboard {
       return false;
     }
     return false;
+  }
+
+  public String checkWin(){
+    for(int row = 0; row < arr.length; row++){
+      for(int col = 0;col < arr[row].length;col++)            {
+        if((arr[row][col] != 1) && (arr[row][col]!= 2))
+        {
+          return "Blue wins";
+        }
+        if((arr[row][col] != -1) && (arr[row][col]!= -2))
+        {
+          return "Red wins";
+        }
+      }
+    }
+    return "No win";
   }
 }
 

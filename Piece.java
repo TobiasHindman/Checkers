@@ -1,10 +1,10 @@
 public class Piece {
-    private  Gameboard currentGameBoard;
+    Gameboard currentGameBoard = new Gameboard();
     private int xindex;
     private int yindex;
-    public int color;
+    public String color;
     public boolean isKing;
-    public piece(GameBoard currentBoard, int xindex1, int yindex1, String color1, boolean isKing1)  {
+    public Piece(Gameboard currentBoard, int xindex1, int yindex1, String color1, boolean isKing1)  {
         currentGameBoard = currentBoard;
         xindex = xindex1;
         yindex = yindex1;
@@ -13,10 +13,19 @@ public class Piece {
     }
     public void move(int toXIndex, int toYIndex) {
         if(checkMove(toXIndex, toYIndex))  {
+<<<<<<< HEAD
             if (currentGameBoard.gameBoard[xindex - 1][yindex - 1] = -1) {
                 currentGameBoard.moveRedPiece(xindex, yindex, toXIndex, toYIndex);
             }
             if (currentGameBoard.gameBoard[xindex - 1][yindex - 1] = 1) {
+=======
+            currentGameBoard.game[toXIndex -1][toYIndex -1] = currentGameBoard.game[xindex - 1][yindex - 1];
+            currentGameBoard.game[xindex - 1][yindex - 1] = null;
+            if (color.equals("red")) {
+                currentGameBoard.moveRedPiece(xindex, yindex, toXIndex, toYIndex);
+            }
+            if (color.equals("blue")) {
+>>>>>>> 2e5090285876d9ee0452180f45487cbb9fdd07f2
                 currentGameBoard.moveBluePiece(xindex, yindex, toXIndex, toYIndex);
             }
             currentGameBoard.gameBoard[toXIndex -1][toYIndex -1] = currentGameBoard.game[xindex - 1][yindex - 1];
@@ -42,13 +51,21 @@ public class Piece {
         else return false;
     }
     public boolean checkTake(int takeXIndex, int takeYIndex, int toXIndex, int toYIndex){
+<<<<<<< HEAD
         if(currentGameBoard.gameBoard[xindex - 1][yindex - 1] = 1) {
+=======
+        if(color.equals("blue")) {
+>>>>>>> 2e5090285876d9ee0452180f45487cbb9fdd07f2
             if (toYIndex > takeYIndex && toXIndex > takeXIndex) {
                 return true;
             }
             else return false;
         }
+<<<<<<< HEAD
         else if (currentGameBoard.gameBoard[xindex - 1][yindex - 1] = -1) {
+=======
+        else if (color.equals("red")) {
+>>>>>>> 2e5090285876d9ee0452180f45487cbb9fdd07f2
             if (toYIndex < takeYIndex && toXIndex < takeXIndex) {
                 return true;
             }
