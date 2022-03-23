@@ -5,5 +5,7 @@ public class Computer {
 
     public int[] nextMove() {
         nextLetter = (int) 10 * math.random(0,1);
+        nextNumber = (int) 10 * math.random(0,1);
+        int[] nextMove = new int [nextLetter, nextNumber];
     }
 }
