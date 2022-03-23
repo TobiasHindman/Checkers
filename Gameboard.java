@@ -3,7 +3,7 @@ public class Gameboard {
   int[][] gameBoard = {{1,0,1,0,0,0,-1,0},{0,1,0,0,0,-1,0,-1},{1,0,1,0,0,0,-1,0},{0,1,0,0,0,-1,0,-1},{1,0,1,0,0,0,-1,0},{0,1,0,0,0,-1,0,-1},{1,0,1,0,0,0,-1,0},{0,1,0,0,0,-1,0,-1}};
   public void drawBoard(){
     Frame gFrame = new Frame();
-    gFrame.add(new makeBoard(arr));
+    gFrame.add(new makeBoard(gameBoard));
     gFrame.setSize(500,500);
     gFrame.setVisible(true);
   }  
