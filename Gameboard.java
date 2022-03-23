@@ -1,14 +1,15 @@
 import java.awt.*;
 public class Gameboard {
-  public int[][] gameBoard = new int[8][8];
-  int[][] arr = {{1,0,1,0,0,0,-1,0},{0,1,0,0,0,-1,0,-1},{1,0,1,0,0,0,-1,0},{0,1,0,0,0,-1,0,-1},{1,0,1,0,0,0,-1,0},{0,1,0,0,0,-1,0,-1},{1,0,1,0,0,0,-1,0},{0,1,0,0,0,-1,0,-1}};
+  int[][] gameBoard = {{1,0,1,0,0,0,-1,0},{0,1,0,0,0,-1,0,-1},{1,0,1,0,0,0,-1,0},{0,1,0,0,0,-1,0,-1},{1,0,1,0,0,0,-1,0},{0,1,0,0,0,-1,0,-1},{1,0,1,0,0,0,-1,0},{0,1,0,0,0,-1,0,-1}};
   public void drawBoard(){
     Frame gFrame = new Frame();
     gFrame.add(new makeBoard(arr));
     gFrame.setSize(500,500);
     gFrame.setVisible(true);
   }  
-
+  public void setBoard(int[][] a){
+    gameBoard = a;
+  }
   public boolean moveRedPiece(int fromX, int fromY, int toX, int toY)  {
     if(toX==(fromX+1)||toX==(fromX-1)){//if they only move by one
       if(toX<gameBoard.length && toX>0){//check for out of bounds
