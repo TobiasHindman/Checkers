@@ -114,5 +114,4 @@ public class Player
       return player + " won";
     }
   }
->>>>>>> 73c27c85236e086f638629d309a9cd8c3c181663
 }
