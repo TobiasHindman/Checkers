@@ -72,13 +72,13 @@ public class Gameboard {
   }
 
   public String checkWin(){
-    for(int row = 0; row < arr.length; row++){
-      for(int col = 0;col < arr[row].length;col++)            {
-        if((arr[row][col] != 1) && (arr[row][col]!= 2))
+    for(int row = 0; row < gameBoard.length; row++){
+      for(int col = 0;col < gameBoard[row].length;col++)            {
+        if((gameBoard[row][col] != 1) && (gameBoard[row][col]!= 2))
         {
           return "Blue wins";
         }
-        if((arr[row][col] != -1) && (arr[row][col]!= -2))
+        if((gameBoard[row][col] != -1) && (gameBoard[row][col]!= -2))
         {
           return "Red wins";
         }
