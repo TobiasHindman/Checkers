@@ -4,8 +4,8 @@ public class Piece {
     private int yindex;
     public String color;
     public boolean isKing;
-    public Piece(Gameboard currentBoard, int xindex1, int yindex1, String color1, boolean isKing1)  {
-        currentGameBoard = currentBoard;
+    public Piece(/*Gameboard currentBoard,*/ int xindex1, int yindex1, String color1, boolean isKing1)  {
+        //currentGameBoard = currentBoard;
         xindex = xindex1;
         yindex = yindex1;
         color = color1;
