@@ -1,4 +1,3 @@
-public class Main() {
 public class Main{
   public static void main(String[] args) {
     Gameboard myBoard = new Gameboard();
@@ -7,6 +6,8 @@ public class Main{
     Player player2 = new Player();
     boolean hasWon = false;
     int count = 0;
+    Scanner kb = new Scanner(System.in);
+    
     while(hasWon){
       if((count%2)==0){
         //player 1's code

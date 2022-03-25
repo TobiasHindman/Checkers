@@ -25,8 +25,20 @@ public class Player
     if((toX-fromX) == 2 || (fromX-toX) == 2){
       if(pieces.checkTake(fromX, fromY, toX, toY)){
         pieces.take(fromX, fromY, toX, toY);
+        return true;
+      }
+      else{
+        return false;
       }
     }
-    else if
+    else if((toX-fromX) == 1 || (fromX-toX) == 1){
+      if(pieces.checkMove(fromX, fromY, toX, toY)){
+        pieces.move(fromX, fromY, toX, toY);
+        return true;
+      }
+      else{
+        return false;
+      }
+    }
   }
 }
