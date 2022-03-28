@@ -1,16 +1,16 @@
 public class Piece {
     Gameboard currentGameBoard = new Gameboard();
-    private int xindex;
-    private int yindex;
+    //private int xindex;
+    //private int yindex;
     public String color;
     public boolean isKing;
-    public void move(int toXIndex, int toYIndex) {
-        if(checkMove(toXIndex, toYIndex))  {
+    public void move(int xindex, int yindex, int toXIndex, int toYIndex) {
+        if(checkMove(xindex, yindex, toXIndex, toYIndex))  {
             if (Gameboard.gameBoard[xindex - 1][yindex - 1] == -1) {
                 currentGameBoard.moveRedPiece(xindex, yindex, toXIndex, toYIndex);
             }
             if (Gameboard.gameBoard[xindex - 1][yindex - 1] == 1) {
-                Gameboard.moveBluePiece(xindex, yindex, toXIndex, toYIndex);
+                //Gameboard.moveBluePiece(xindex, yindex, toXIndex, toYIndex);
             }
             Gameboard.gameBoard[toXIndex -1][toYIndex -1] = Gameboard.gameBoard[xindex - 1][yindex - 1];
             Gameboard.gameBoard[xindex - 1][yindex - 1] = 0;
@@ -27,7 +27,7 @@ public class Piece {
         }
         else; 
     }
-    public boolean checkMove(int toXIndex, int toYIndex){
+    public boolean checkMove(int xindex, int yindex, int toXIndex, int toYIndex){
         if (Gameboard.gameBoard[toXIndex][toYIndex] == 0){
             return true;
         }
