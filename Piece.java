@@ -6,14 +6,14 @@ public class Piece {
     public boolean isKing;
     public void move(int toXIndex, int toYIndex) {
         if(checkMove(toXIndex, toYIndex))  {
-            if (Gameboard.gameBoard[xindex - 1][yindex - 1] = -1) {
+            if (Gameboard.gameBoard[xindex - 1][yindex - 1] == -1) {
                 currentGameBoard.moveRedPiece(xindex, yindex, toXIndex, toYIndex);
             }
-            if (GameBoard.gameBoard[xindex - 1][yindex - 1] = 1) {
-                GameBoard.moveBluePiece(xindex, yindex, toXIndex, toYIndex);
+            if (Gameboard.gameBoard[xindex - 1][yindex - 1] == 1) {
+                Gameboard.moveBluePiece(xindex, yindex, toXIndex, toYIndex);
             }
-            GameBoard.gameBoard[toXIndex -1][toYIndex -1] = GameBoard.gameboard[xindex - 1][yindex - 1];
-            GameBoard.gameBoard[xindex - 1][yindex - 1] = 0;
+            Gameboard.gameBoard[toXIndex -1][toYIndex -1] = Gameboard.gameBoard[xindex - 1][yindex - 1];
+            Gameboard.gameBoard[xindex - 1][yindex - 1] = 0;
             xindex = toXIndex;
             yindex = toYIndex;
             
@@ -21,22 +21,22 @@ public class Piece {
     }
     public void take(int takeXIndex, int takeYIndex, int toXIndex, int toYIndex) {
         if (checkTake(takeXIndex, takeYIndex, toXIndex, toYIndex)) {
-            GameBoard.gameBoard[toXIndex -1][toYIndex -1] = GameBoard.gameboard[xindex - 1][yindex - 1];
+            Gameboard.gameBoard[toXIndex -1][toYIndex -1] = Gameboard.gameBoard[xindex - 1][yindex - 1];
             xindex = toXIndex;
             yindex = toYIndex;
         }
         else; 
     }
     public boolean checkMove(int toXIndex, int toYIndex){
-        if (GameBoard.gameBoard[toXIndex][toYIndex] = 0){
+        if (Gameboard.gameBoard[toXIndex][toYIndex] == 0){
             return true;
         }
-        if(GameBoard.gameBoard[xindex][yindex] = -1) {
+        if(Gameboard.gameBoard[xindex][yindex] == -1) {
             if((toXIndex != xindex) &&(toYIndex > yindex)) {
                 return true;
             }
         }
-        if(GameBoard.gameBoard[xindex][yindex] = 1) {
+        if(Gameboard.gameBoard[xindex][yindex] == 1) {
             if((toXIndex != xindex) &&(toYIndex < yindex)) {
                 return true;
             }
@@ -44,13 +44,13 @@ public class Piece {
         return false;
     }
     public boolean checkTake(int takeXIndex, int takeYIndex, int toXIndex, int toYIndex){
-        if(GameBoard.gameBoard[xindex - 1][yindex - 1] = 1) {
+        if(Gameboard.gameBoard[xindex - 1][yindex - 1] == 1) {
             if (toYIndex > takeYIndex && toXIndex > takeXIndex) {
                 return true;
             }
             else return false;
         }
-        else if (GameBoard.gameBoard[xindex - 1][yindex - 1] = -1) {
+        else if (Gameboard.gameBoard[xindex - 1][yindex - 1] == -1) {
             if (toYIndex < takeYIndex && toXIndex < takeXIndex) {
                 return true;
             }

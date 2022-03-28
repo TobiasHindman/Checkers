@@ -4,6 +4,9 @@ public class Main{
     Gameboard myBoard = new Gameboard();
     myBoard.drawBoard();
     boolean hasWon = false;
+    String fromC;
+    String toC;
+    String input;
     int count = 0;
     String p1Name;
     String p2Name;
@@ -22,20 +25,44 @@ public class Main{
       p2Color = "red";
     }
     System.out.println("Player 2, please enter your name, or press \"c\" to play a computer");
-    p1Name = kb.nextLine();
+    p2Name = kb.nextLine();
     if(p1Name.equals("c")){
       Player player2 = new Player("Computer", p2Color);
     }
     else{
       Player player2 = new Player(p2Name, p2Color);
     }
-    
-    while(hasWon){
+    try
+    {
+      Thread.sleep(1000);
+    }
+    catch(InterruptedException ex)
+    {
+        Thread.currentThread().interrupt();
+    }
+    System.out.println("How to play:\nWhen prompted for your move, first enter the current coordinate of the piece you want to move, followed by the coordinate you want to move to. ex: (c1b2) do not include spaces in your answer\nThe game will automatically double jump for you");
+    try
+    {
+      Thread.sleep(5000);
+    }
+    catch(InterruptedException ex)
+    {
+        Thread.currentThread().interrupt();
+    }
+    while(hasWon = false){
       if((count%2)==0){
-        //player 1's code
+        System.out.println(p1Name+" please enter your move");
+        input = kb.nextLine();
+        fromC = input.substring(0,1);
+        toC = input.substring(1);
+        player1.move(fromC, toC);
       }
       else{
-        //player 2's code
+        System.out.println(p2Name+" please enter your move");
+        input = kb.nextLine();
+        fromC = input.substring(0,1);
+        toC = input.substring(1);
+        player1.move(fromC, toC);
       }
       count++;
     }
