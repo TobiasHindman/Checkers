@@ -12,7 +12,7 @@ public class Piece {
             if (GameBoard.gameBoard[xindex - 1][yindex - 1] = 1) {
                 GameBoard.moveBluePiece(xindex, yindex, toXIndex, toYIndex);
             }
-            GameBoard.gameBoard[toXIndex -1][toYIndex -1] = currentGameBoard.game[xindex - 1][yindex - 1];
+            GameBoard.gameBoard[toXIndex -1][toYIndex -1] = GameBoard.gameboard[xindex - 1][yindex - 1];
             GameBoard.gameBoard[xindex - 1][yindex - 1] = 0;
             xindex = toXIndex;
             yindex = toYIndex;
@@ -21,7 +21,7 @@ public class Piece {
     }
     public void take(int takeXIndex, int takeYIndex, int toXIndex, int toYIndex) {
         if (checkTake(takeXIndex, takeYIndex, toXIndex, toYIndex)) {
-            GameBoard.gameBoard[toXIndex -1][toYIndex -1] = currentGameBoard.game[xindex - 1][yindex - 1];
+            GameBoard.gameBoard[toXIndex -1][toYIndex -1] = GameBoard.gameboard[xindex - 1][yindex - 1];
             xindex = toXIndex;
             yindex = toYIndex;
         }
