@@ -7,7 +7,7 @@ public class Player
   private Scanner kb = new Scanner(System.in);
   private String playerColor;
   private int numCheckers;
-  //Piece pieces = new Piece();
+  Piece pieces = new Piece();
 
   public Player(String player, String color)
   {
@@ -15,7 +15,7 @@ public class Player
     playerColor = color;
     numCheckers = 12;
   }
-  /*public boolean move(String fromC, String toC){
+  public boolean move(String fromC, String toC){
     int fromX = (int) fromC.charAt(0);
     fromX -= 96;
     int fromY = (int) Integer.parseInt(fromC.substring(1));
@@ -40,5 +40,5 @@ public class Player
         return false;
       }
     }
-  }*/
+  }
 }
