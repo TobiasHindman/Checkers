@@ -31,21 +31,26 @@ public class Computer {
             if(piece.checkMove(fromMove[0] + 1, fromMove[1] - 1)) {
             nextMove[0] = fromMove[0] + 1;
             nextMove[1] = fromMove[0] - 1;
+            return nextMove;
             }
             if(piece.checkMove(fromMove[0] - 1, fromMove[1] - 1)){
             nextMove[0] = fromMove[0] + 1;
             nextMove[1] = fromMove[0] - 1;
+            return nextMove;
             }
         }
         if(color == -1) {
             if(piece.checkMove(fromMove[0] + 1, fromMove[1] + 1)) {
             nextMove[0] = fromMove[0] + 1;
             nextMove[1] = fromMove[0] + 1;
+            return nextMove;
             }
             if(piece.checkMove(fromMove[0] - 1, fromMove[1] + 1))
             nextMove[0] = fromMove[0] + 1;
             nextMove[1] = fromMove[0] + 1;
+            return nextMove;
             }
+        else return null;
         } 
     }
 
