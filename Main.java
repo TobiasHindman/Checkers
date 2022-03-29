@@ -62,7 +62,7 @@ public class Main{
         input = kb.nextLine();
         fromC = input.substring(0,1);
         toC = input.substring(1);
-        player2.move(fromC, toC);
+        //player2.move(fromC, toC);
       }
       count++;
     }

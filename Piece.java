@@ -32,13 +32,20 @@ public class Piece {
             if (toYIndex > takeYIndex && toXIndex > takeXIndex) {
                 return true;
             }
-            else return false;
+            else {
+              return false;
+            }
         }
         else if (Gameboard.gameBoard[takeXIndex - 1][takeYIndex - 1] == -1) {
             if (toYIndex < takeYIndex && toXIndex < takeXIndex) {
                 return true;
             }
-            else return false;
+            else{
+              return false;
+            } 
+        }
+        else{
+          return false;
         }
     }
     public boolean checkDoubleJump(int takeXIndex, int takeYIndex,int takeXIndex2, int takeYIndex2, int toXIndex , int toYIndex) {
