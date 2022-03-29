@@ -1,4 +1,4 @@
-public class Piece {
+/*public class Piece {
     Gameboard currentGameBoard = new Gameboard();
     //private int xindex;
     //private int yindex;
@@ -69,3 +69,4 @@ public class Piece {
 
 }
 
+*/
