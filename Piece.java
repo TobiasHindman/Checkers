@@ -5,30 +5,14 @@ public class Piece {
     public String color;
     public boolean isKing;
     public void move(int xindex, int yindex, int toXIndex, int toYIndex) {
-        if(checkMove(xindex, yindex, toXIndex, toYIndex))  {
-            if (Gameboard.gameBoard[xindex - 1][yindex - 1] == -1) {
-                currentGameBoard.moveRedPiece(xindex, yindex, toXIndex, toYIndex);
-            }
-            if (Gameboard.gameBoard[xindex - 1][yindex - 1] == 1) {
-                //Gameboard.moveBluePiece(xindex, yindex, toXIndex, toYIndex);
-            }
             Gameboard.gameBoard[toXIndex -1][toYIndex -1] = Gameboard.gameBoard[xindex - 1][yindex - 1];
             Gameboard.gameBoard[xindex - 1][yindex - 1] = 0;
-            xindex = toXIndex;
-            yindex = toYIndex;
-            
-        }  
     }
     public void take(int takeXIndex, int takeYIndex, int toXIndex, int toYIndex) {
-        if (checkTake(takeXIndex, takeYIndex, toXIndex, toYIndex)) {
-            Gameboard.gameBoard[toXIndex -1][toYIndex -1] = Gameboard.gameBoard[xindex - 1][yindex - 1];
-            xindex = toXIndex;
-            yindex = toYIndex;
-        }
-        else; 
+            Gameboard.gameBoard[toXIndex -1][toYIndex -1] = Gameboard.gameBoard[takeXIndex - 1][takeYIndex - 1];
     }
     public boolean checkMove(int xindex, int yindex, int toXIndex, int toYIndex){
-        if (Gameboard.gameBoard[toXIndex][toYIndex] == 0){
+        if (Gameboard.gameBoard[toXIndex-1][toYIndex-1] == 0){
             return true;
         }
         if(Gameboard.gameBoard[xindex][yindex] == -1) {
@@ -44,13 +28,13 @@ public class Piece {
         return false;
     }
     public boolean checkTake(int takeXIndex, int takeYIndex, int toXIndex, int toYIndex){
-        if(Gameboard.gameBoard[xindex - 1][yindex - 1] == 1) {
+        if(Gameboard.gameBoard[takeXIndex - 1][takeYIndex - 1] == 1) {
             if (toYIndex > takeYIndex && toXIndex > takeXIndex) {
                 return true;
             }
             else return false;
         }
-        else if (Gameboard.gameBoard[xindex - 1][yindex - 1] == -1) {
+        else if (Gameboard.gameBoard[takeXIndex - 1][takeYIndex - 1] == -1) {
             if (toYIndex < takeYIndex && toXIndex < takeXIndex) {
                 return true;
             }
