@@ -79,9 +79,9 @@ public class Piece {
         }
         else return false;
     }
-    public boolean checkDoubleJump(int takeXIndex, int takeYIndex,int takeXIndex2, int takeYIndex2, int toXIndex , int toYIndex) {
-        if (checkTake(takeXIndex, takeYIndex, takeXIndex2, takeYIndex2)) {
-            if (checkTake(takeXIndex2, takeYIndex2, toXIndex, toYIndex)) {
+    public boolean checkDoubleJump(int fromXIndex, int fromYIndex, int takeXIndex, int takeYIndex,int takeXIndex2, int takeYIndex2, int toXIndex , int toYIndex) {
+        if (checkTake(fromXIndex, fromYIndex, takeXIndex, takeYIndex, takeXIndex2, takeYIndex2)) {
+            if (checkTake(takeXIndex, takeYIndex, takeXIndex2, takeYIndex2, toXIndex, toYIndex)) {
                 return true;
             }
             else return false;
