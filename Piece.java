@@ -19,7 +19,7 @@ public class Piece {
             
         }  
     }
-    public void take(int fromXIndex, int fromYIndex, int takeXIndex, int takeYIndex) {
+    public boolean take(int fromXIndex, int fromYIndex, int takeXIndex, int takeYIndex) {
         int toXIndex;
         int toYIndex;
         if (Gameboard.gameBoard[fromXIndex - 1][fromYIndex - 1] == -1) {
@@ -45,8 +45,11 @@ public class Piece {
         
         if (checkTake(fromXIndex, fromYIndex, takeXIndex, takeYIndex, toXIndex, toYIndex)) {
             Gameboard.gameBoard[toXIndex -1][toYIndex -1] = Gameboard.gameBoard[fromXIndex - 1][fromYIndex - 1];
+          return true;
         }
-        else; 
+        else{
+          return false;
+        } 
     }
     public boolean checkMove(int xindex, int yindex, int toXIndex, int toYIndex){
         if (Gameboard.gameBoard[toXIndex][toYIndex] == 0){

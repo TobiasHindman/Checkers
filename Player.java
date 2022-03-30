@@ -7,6 +7,7 @@ public class Player
   private Scanner kb = new Scanner(System.in);
   private String playerColor;
   private int numCheckers;
+  boolean canMove = false;
   Piece pieces = new Piece();
 
   public Player(String player, String color)
@@ -26,22 +27,25 @@ public class Player
     toX-= 96;
     int toY = (int) Integer.parseInt(toC.substring(1));
     if((toX-fromX) == 2 || (fromX-toX) == 2){
-      if(pieces.checkTake(fromX, fromY, toX, toY)){
+      if(pieces.take(fromX, fromY, toX, toY)){
         pieces.take(fromX, fromY, toX, toY);
-        return true;
+        return canMove;
       }
       else{
-        return false;
+        return canMove;
       }
     }
     else if((toX-fromX) == 1 || (fromX-toX) == 1){
       if(pieces.checkMove(fromX, fromY, toX, toY)){
         pieces.move(fromX, fromY, toX, toY);
-        return true;
+        return canMove;
       }
       else{
-        return false;
+        return canMove;
       }
+    }
+    else{
+      return canMove;
     }
   }
 }
