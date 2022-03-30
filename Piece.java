@@ -22,7 +22,7 @@ public class Piece {
     public void take(int fromXIndex, int fromYIndex, int takeXIndex, int takeYIndex) {
         int toXIndex;
         int toYIndex;
-        if (Gameboard.gameboard[fromXIndex - 1][fromYIndex - 1] == -1) {
+        if (Gameboard.gameBoard[fromXIndex - 1][fromYIndex - 1] == -1) {
             if(takeXIndex > fromXIndex) {
                 toXIndex = takeXIndex + 1;
                 toYIndex = takeYIndex - 1;

@@ -7,6 +7,9 @@ class makeBoard extends Component{
   public void paint(Graphics g)
   {
     Graphics2D graph = (Graphics2D)g;
+    Font font = new Font("Serif", Font.PLAIN, 12);
+    graph.setFont(font);
+    graph.drawString("Why Hello There",25,25);
     graph.setColor(Color.DARK_GRAY);
     graph.fillRect(0,0,500,500);
     graph.setColor(Color.WHITE);
