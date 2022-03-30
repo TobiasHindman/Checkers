@@ -26,12 +26,13 @@ public class Main{
     }
     System.out.println("Player 2, please enter your name, or press \"c\" to play a computer");
     p2Name = kb.nextLine();
-    if(p1Name.equals("c")){
+    Player player2 = new Player(p2Name, p2Color);
+    /*if(p2Name.equals("c")){
       Player player2 = new Player("Computer", p2Color);
     }
     else{
       Player player2 = new Player(p2Name, p2Color);
-    }
+    }*/
     try
     {
       Thread.sleep(1000);
@@ -49,24 +50,29 @@ public class Main{
     {
         Thread.currentThread().interrupt();
     }
-    while(hasWon = false){
-      if((count%2)==0){
-        System.out.println(p1Name+" please enter your move");
-        input = kb.nextLine();
-        fromC = input.substring(0,1);
-        toC = input.substring(1);
-        player1.move(fromC, toC);
-        myBoard.drawBoard();
-      }
-      else{
-        System.out.println(p2Name+" please enter your move");
-        input = kb.nextLine();
-        fromC = input.substring(0,1);
-        toC = input.substring(1);
-        player2.move(fromC, toC);
-        myBoard.drawBoard();
-      }
+    if(player2.getName() != "c"){
+      while(hasWon = false){
+        if((count%2)==0){
+          System.out.println(p1Name+" please enter your move");
+          input = kb.nextLine();
+          fromC = input.substring(0,1);
+          toC = input.substring(1);
+          player1.move(fromC, toC);
+          myBoard.drawBoard();
+        }
+        else{
+          System.out.println(p2Name+" please enter your move");
+          input = kb.nextLine();
+          fromC = input.substring(0,1);
+          toC = input.substring(1);
+          player2.move(fromC, toC);
+          myBoard.drawBoard();
+        }
       count++;
+      }
+    }
+    else{
+      //implement computer code
     }
   }
 }

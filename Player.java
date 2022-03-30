@@ -15,6 +15,9 @@ public class Player
     playerColor = color;
     numCheckers = 12;
   }
+  public String getName(){
+    return currentPlayer;
+  }
   public boolean move(String fromC, String toC){
     int fromX = (int) fromC.charAt(0);
     fromX -= 96;
