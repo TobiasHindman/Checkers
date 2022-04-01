@@ -1,5 +1,5 @@
 import java.util.*;
-public class Main{
+public class Main {
   public static void main(String[] args) {
     Gameboard myBoard = new Gameboard();
     Computer computer = new Computer();
@@ -14,7 +14,7 @@ public class Main{
     String p1Color;
     String p2Color;
 
-    Scanner kb = new Scanner(System.in);
+    Scanner kb = new Scanner(System.in());
     System.out.println("Player 1, please enter your name");
     p1Name = kb.nextLine();
     System.out.println(p1Name+ " please enter the color you wish to be, type \"red\" for red, and \"blue\" for blue");
@@ -45,7 +45,7 @@ public class Main{
     System.out.println("How to play:\nWhen prompted for your move, first enter the current coordinate of the piece you want to move, followed by the coordinate you want to move to. ex: (c1b2) do not include spaces in your answer\nThe game will automatically double jump for you");
     try
     {
-      Thread.sleep(5000);
+      Thread.sleep(1000);
     }
     catch(InterruptedException ex)
     {
@@ -80,6 +80,10 @@ public class Main{
     }
     else {
       while(hasWon = false){
+
+    if(player2.getName() != "c"){
+      while(hasWon == false){
+        System.out.println("first check");
         if((count%2)==0){
           System.out.println(p1Name+" please enter your move");
           input = kb.nextLine();
@@ -99,5 +103,7 @@ public class Main{
         count++;
       }
     }
+  }
+}
   }
 }
