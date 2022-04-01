@@ -33,6 +33,8 @@ public class Main{
     else{
       Player player2 = new Player(p2Name, p2Color);
     }*/
+    
+    System.out.println("How to play:\nWhen prompted for your move, first enter the current coordinate of the piece you want to move, followed by the coordinate you want to move to. ex: (c1b2) do not include spaces in your answer\nThe game will automatically double jump for you");
     try
     {
       Thread.sleep(1000);
@@ -41,17 +43,9 @@ public class Main{
     {
         Thread.currentThread().interrupt();
     }
-    System.out.println("How to play:\nWhen prompted for your move, first enter the current coordinate of the piece you want to move, followed by the coordinate you want to move to. ex: (c1b2) do not include spaces in your answer\nThe game will automatically double jump for you");
-    try
-    {
-      Thread.sleep(5000);
-    }
-    catch(InterruptedException ex)
-    {
-        Thread.currentThread().interrupt();
-    }
     if(player2.getName() != "c"){
-      while(hasWon = false){
+      while(hasWon == false){
+        System.out.println("first check");
         if((count%2)==0){
           System.out.println(p1Name+" please enter your move");
           input = kb.nextLine();
