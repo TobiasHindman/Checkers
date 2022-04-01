@@ -2,6 +2,7 @@ import java.util.*;
 public class Main{
   public static void main(String[] args) {
     Gameboard myBoard = new Gameboard();
+    Computer computer = new Computer();
     myBoard.drawBoard();
     boolean hasWon = false;
     String fromC;
@@ -12,6 +13,7 @@ public class Main{
     String p2Name;
     String p1Color;
     String p2Color;
+
     Scanner kb = new Scanner(System.in);
     System.out.println("Player 1, please enter your name");
     p1Name = kb.nextLine();
@@ -26,13 +28,12 @@ public class Main{
     }
     System.out.println("Player 2, please enter your name, or press \"c\" to play a computer");
     p2Name = kb.nextLine();
-    Player player2 = new Player(p2Name, p2Color);
-    /*if(p2Name.equals("c")){
+    if(p1Name.equals("c")){
       Player player2 = new Player("Computer", p2Color);
     }
     else{
       Player player2 = new Player(p2Name, p2Color);
-    }*/
+    }
     try
     {
       Thread.sleep(1000);
@@ -50,7 +51,34 @@ public class Main{
     {
         Thread.currentThread().interrupt();
     }
-    if(player2.getName() != "c"){
+    if (p1.name.equals("c")|| p2.name.equals("c")) {
+      while(hasWon = false){
+        if((count%2)==0){
+          System.out.println(p1Name+" please enter your move");
+          input = kb.nextLine();
+          fromC = input.substring(0,1);
+          toC = input.substring(1);
+          player1.move(fromC, toC);
+          myBoard.drawBoard();
+        }
+        else{
+          System.out.println(p2Name+" please enter your move");
+          input = kb.nextLine();
+          int[] fromMove = new int [2];
+          fromMove = computer.fromMove();
+          fromC = String.valueOf(fromMove[0]);
+          fromC += String.valueOf(fromMove[1]);
+          int[] nextMove = new int [2];
+          fromMove = computer.nextMove();
+          toC = String.valueOf(nextMove[0]);
+          toC += String.valueOf(fromMove[1]);
+          player2.move(fromC, toC);
+          myBoard.drawBoard();
+        }
+        count++;
+      }
+    }
+    else {
       while(hasWon = false){
         if((count%2)==0){
           System.out.println(p1Name+" please enter your move");
@@ -68,11 +96,8 @@ public class Main{
           player2.move(fromC, toC);
           myBoard.drawBoard();
         }
-      count++;
+        count++;
       }
-    }
-    else{
-      //implement computer code
     }
   }
 }
