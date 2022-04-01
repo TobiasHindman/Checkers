@@ -1,4 +1,4 @@
-import math.random;
+/*import math.random;
 public class Computer {
     public int nextLetter;
     public int nextNumber;
@@ -53,4 +53,4 @@ public class Computer {
         else return null;
         } 
     }
-
+*/
