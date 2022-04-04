@@ -7,11 +7,27 @@ class makeBoard extends Component{
   public void paint(Graphics g)
   {
     Graphics2D graph = (Graphics2D)g;
-    Font font = new Font("Serif", Font.PLAIN, 12);
+    Font font = new Font("Serif", Font.PLAIN, 20);
     graph.setFont(font);
-    graph.drawString("Why Hello There",25,25);
     graph.setColor(Color.DARK_GRAY);
     graph.fillRect(0,0,500,500);
+    graph.setColor(Color.WHITE);
+    graph.drawString("A",70,40);
+    graph.drawString("B",120,40);
+    graph.drawString("C",170,40);
+    graph.drawString("D",220,40);
+    graph.drawString("E",270,40);
+    graph.drawString("F",320,40);
+    graph.drawString("G",370,40);
+    graph.drawString("H",420,40);
+    graph.drawString("1",30,75);
+    graph.drawString("2",30,125);
+    graph.drawString("3",30,175);
+    graph.drawString("4",30,225);
+    graph.drawString("5",30,275);
+    graph.drawString("6",30,325);
+    graph.drawString("7",30,375);
+    graph.drawString("8",30,425);
     graph.setColor(Color.WHITE);
     graph.fillRect(50,50,50,50);
     graph.fillRect(150,50,50,50);
