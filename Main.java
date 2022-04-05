@@ -52,36 +52,6 @@ public class Main {
     {
         Thread.currentThread().interrupt();
     }
-    /*if (player2.getName() != "c") {
-      while(hasWon == false){
-        if((count%2)==0){
-          System.out.println(p1Name+" please enter your move");
-          input = kb.nextLine();
-          fromC = input.substring(0,1);
-          toC = input.substring(1);
-          player1.move(fromC, toC);
-          myBoard.drawBoard();
-        }
-        else{
-          System.out.println(p2Name+" please enter your move");
-          input = kb.nextLine();
-          int[] fromMove = new int [2];
-          fromMove = computer.fromMove();
-          fromC = String.valueOf(fromMove[0]);
-          fromC += String.valueOf(fromMove[1]);
-          int[] nextMove = new int [2];
-          fromMove = computer.nextMove();
-          toC = String.valueOf(nextMove[0]);
-          toC += String.valueOf(fromMove[1]);
-          player2.move(fromC, toC);
-          myBoard.drawBoard();
-        }
-        count++;
-      }
-    }
-    else {
-      while(hasWon = false){
-*/
     if(player2.getName() != "c"){
       while(hasWon == false){
         if((count%2)==0){
@@ -105,7 +75,3 @@ public class Main {
     }
   }
 }
-/*
-  }
-}
-*/

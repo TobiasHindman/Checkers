@@ -1,4 +1,4 @@
-// 1 is blue, -1 is red
+  // 1 is blue, -1 is red
 public class Piece2 {
     Gameboard currentGameBoard = new Gameboard();
     //private int xindex;
@@ -33,17 +33,35 @@ public class Piece2 {
       }
     }
     public boolean take(int fromX, int fromY, int toX, int toY) {
-        
+       if(Gameboard.gameBoard[fromX][fromY] == 1){
+          if((toY-fromY) == 2){
+            if(((fromX-toX)==2)||((fromX-toX)==-2)){
+              if(Gameboard.gameBoard[toX][toY]==0){
+                Gameboard.gameBoard[toX][toY] = Gameboard.gameBoard[fromX][fromY];
+                Gameboard.gameBoard[fromX][fromY] = 0;
+              }
+            }
+          }
+          return true;
+        }
+      else if(Gameboard.gameBoard[fromX][fromY] == -1){
+          if((fromY-toY) == 2){
+            if(((fromX-toX)==2)||((fromX-toX)==-2)){
+              if(Gameboard.gameBoard[toX][toY]==0){
+                Gameboard.gameBoard[toX][toY] = Gameboard.gameBoard[fromX][fromY];
+                Gameboard.gameBoard[fromX][fromY] = 0;
+              }
+            }
+          }
+        return true;
+      }
+      else{
+        return false;
+      } 
     }
-    public boolean checkMove(int fromX, int fromY, int toX, int toY){
-        
-    }
-    public boolean checkTake(int fromX, int fromY, int toX, int toY){
-        
-    }
-    public boolean checkDoubleJump(int fromX, int fromY, int toX, int toY) {
+    /*public boolean doubleJump(int fromX, int fromY, int toX, int toY) {
 
-    } 
+    }*/ 
 
 }
 
