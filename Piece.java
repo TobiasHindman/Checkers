@@ -100,7 +100,6 @@ Gameboard currentGameBoard = new Gameboard();
         if(Gameboard.gameBoard[fromX][fromY] == 1){
           if((toY-fromY) == 1){
             if(((fromX-toX)==1)||((fromX-toX)==-1)){
-              System.out.println("Blue piece");
               if(Gameboard.gameBoard[toX][toY]==0){
                 Gameboard.gameBoard[toX][toY] = Gameboard.gameBoard[fromX][fromY];
                 Gameboard.gameBoard[fromX][fromY] = 0;
@@ -110,10 +109,8 @@ Gameboard currentGameBoard = new Gameboard();
           return true;
         }
       else if(Gameboard.gameBoard[fromX][fromY] == -1){
-        System.out.println("Red piece");
           if((fromY-toY) == 1){
             if(((fromX-toX)==1)||((fromX-toX)==-1)){
-              System.out.println("Blue piece");
               if(Gameboard.gameBoard[toX][toY]==0){
                 Gameboard.gameBoard[toX][toY] = Gameboard.gameBoard[fromX][fromY];
                 Gameboard.gameBoard[fromX][fromY] = 0;
@@ -127,19 +124,29 @@ Gameboard currentGameBoard = new Gameboard();
       }
     }
     public boolean take(int fromX, int fromY, int toX, int toY) {
+      System.out.println("HELLO THERE");
       int stepX = 0;
       int stepY = 0;
        if(Gameboard.gameBoard[fromX][fromY] == 1){
           if((toY-fromY) == 2){
             if(((fromX-toX)==2)||((fromX-toX)==-2)){
               if(Gameboard.gameBoard[toX][toY]==0){
-                stepX = (toX - fromX);
-                stepX = stepX+fromX;
-                stepY = (toY-fromY);
-                stepY = stepY + fromY;
-                if((toX-fromX)){
-                  
+                System.out.println(toX+""+toY);
+                System.out.println(fromX+""+fromY);
+                if((toX-fromX)<0){
+                  stepX = -1;
                 }
+                else{
+                  stepX = 1;
+                }
+                if((toY-fromY)<0){
+                  stepX = -1;
+                }
+                else{
+                  stepX = 1;
+                }
+                stepX = stepX+fromX;
+                stepY = stepY + fromY;
                 Gameboard.gameBoard[toX][toY] = Gameboard.gameBoard[fromX][fromY];
                 Gameboard.gameBoard[fromX][fromY] = 0;
                 Gameboard.gameBoard[stepX][stepY] = 0;

@@ -31,10 +31,10 @@ public class Player
     if((toX-fromX) == 2 || (fromX-toX) == 2){
       if(pieces.take(fromX, fromY, toX, toY)){
         pieces.take(fromX, fromY, toX, toY);
-        return canMove;
+        canMove=true;
       }
       else{
-        return canMove;
+        canMove = false;
       }
     }
     else if((toX-fromX) == 1 || (fromX-toX) == 1){
@@ -49,5 +49,6 @@ public class Player
     else{
       return canMove;
     }
+    return canMove;
   }
 }
