@@ -19,7 +19,7 @@ public class Player
   public String getName(){
     return currentPlayer;
   }
-  public boolean move(String fromC, String toC){
+  public boolean move(String fromC, String toC, String Color){
     int fromX = (int) fromC.charAt(0);
     fromX -= 97;
     int fromY = (int) Integer.parseInt(fromC.substring(1));
@@ -29,8 +29,8 @@ public class Player
     int toY = (int) Integer.parseInt(toC.substring(1));
     toY -= 1;
     if((toX-fromX) == 2 || (fromX-toX) == 2){
-      if(pieces.take(fromX, fromY, toX, toY)){
-        pieces.take(fromX, fromY, toX, toY);
+      if(pieces.take(fromX, fromY, toX, toY, Color)){
+        pieces.take(fromX, fromY, toX, toY, Color);
         canMove=true;
       }
       else{
@@ -38,16 +38,16 @@ public class Player
       }
     }
     else if((toX-fromX) == 1 || (fromX-toX) == 1){
-      if(pieces.move(fromX, fromY, toX, toY)){
-        pieces.move(fromX, fromY, toX, toY);
-        return canMove;
+      if(pieces.move(fromX, fromY, toX, toY, Color)){
+        pieces.move(fromX, fromY, toX, toY, Color);
+        canMove = true;
       }
       else{
-        return canMove;
+        canMove = false;
       }
     }
     else{
-      return canMove;
+      canMove = false;
     }
     return canMove;
   }

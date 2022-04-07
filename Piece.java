@@ -96,39 +96,166 @@ Gameboard currentGameBoard = new Gameboard();
     //private int yindex;
     public String color;
     public boolean isKing;
-    public boolean move(int fromX, int fromY, int toX, int toY) {
-        if(Gameboard.gameBoard[fromX][fromY] == 1){
+    public boolean move(int fromX, int fromY, int toX, int toY, String c) {
+        if(Gameboard.gameBoard[fromX][fromY] == 1 && c.equals("blue")){
           if((toY-fromY) == 1){
             if(((fromX-toX)==1)||((fromX-toX)==-1)){
               if(Gameboard.gameBoard[toX][toY]==0){
                 Gameboard.gameBoard[toX][toY] = Gameboard.gameBoard[fromX][fromY];
                 Gameboard.gameBoard[fromX][fromY] = 0;
+                return true;
+              }
+              else{
+                return false;
               }
             }
+            else{
+              return false;
+            }
           }
-          return true;
+          else{
+            return false;
+          }
         }
-      else if(Gameboard.gameBoard[fromX][fromY] == -1){
+      else if(Gameboard.gameBoard[fromX][fromY] == -1 && c.equals("red")){
           if((fromY-toY) == 1){
             if(((fromX-toX)==1)||((fromX-toX)==-1)){
               if(Gameboard.gameBoard[toX][toY]==0){
                 Gameboard.gameBoard[toX][toY] = Gameboard.gameBoard[fromX][fromY];
                 Gameboard.gameBoard[fromX][fromY] = 0;
+                return true;
+              }
+              else{
+                return false;
               }
             }
+            else{
+              return false;
+            }
           }
-        return true;
+        else{
+          return false;
+        }
+      }
+      else if(Gameboard.gameBoard[fromX][fromY] == -2 && c.equals("red")){
+          if((fromY-toY) == 1 || (fromY-toY) == 1){
+            if(((fromX-toX)==1)||((fromX-toX)==-1)){
+              if(Gameboard.gameBoard[toX][toY]==0){
+                Gameboard.gameBoard[toX][toY] = Gameboard.gameBoard[fromX][fromY];
+                Gameboard.gameBoard[fromX][fromY] = 0;
+                return true;
+              }
+              else{
+                return false;
+              }
+            }
+            else{
+              return false;
+            }
+          }
+        else{
+          return false;
+        }
+      }
+      else if(Gameboard.gameBoard[fromX][fromY] == 2 && c.equals("red")){
+          if((fromY-toY) == 1 || (fromY-toY) == 1) {
+            if(((fromX-toX)==1)||((fromX-toX)==-1)){
+              if(Gameboard.gameBoard[toX][toY]==0){
+                Gameboard.gameBoard[toX][toY] = Gameboard.gameBoard[fromX][fromY];
+                Gameboard.gameBoard[fromX][fromY] = 0;
+                return true;
+              }
+              else{
+                return false;
+              }
+            }
+            else{
+              return false;
+            }
+          }
+        else{
+          return false;
+        }
       }
       else{
         return false;
       }
     }
-    public boolean take(int fromX, int fromY, int toX, int toY) {
-      System.out.println("HELLO THERE");
+    public boolean take(int fromX, int fromY, int toX, int toY, String c) {
       int stepX = 0;
       int stepY = 0;
-       if(Gameboard.gameBoard[fromX][fromY] == 1){
+       if(Gameboard.gameBoard[fromX][fromY] == 1 && c.equals("blue")){
           if((toY-fromY) == 2){
+            if(((fromX-toX)==2)||((fromX-toX)==-2)){
+              if(Gameboard.gameBoard[toX][toY]==0){
+                if((toX-fromX)<0){
+                  stepX = -1;
+                }
+                else{
+                  stepX = 1;
+                }
+                if((toY-fromY)<0){
+                  stepY = -1;
+                }
+                else{
+                  stepY = 1;
+                }
+                stepX = stepX+fromX;
+                stepY = stepY + fromY;
+                Gameboard.gameBoard[toX][toY] = Gameboard.gameBoard[fromX][fromY];
+                Gameboard.gameBoard[fromX][fromY] = 0;
+                Gameboard.gameBoard[stepX][stepY] = 0;
+                return true;
+              }
+              else{
+                return false;
+              }
+            }
+            else{
+              return false;
+            }
+          }
+          else{
+            return false;
+          }
+        }
+      else if(Gameboard.gameBoard[fromX][fromY] == -1 && c.equals("red")){
+          if((toY-fromY) == -2){
+            if(((fromX-toX)==2)||((fromX-toX)==-2)){
+              if(Gameboard.gameBoard[toX][toY]==0){
+                if((toX-fromX)<0){
+                  stepX = -1;
+                }
+                else{
+                  stepX = 1;
+                }
+                if((toY-fromY)<0){
+                  stepY = -1;
+                }
+                else{
+                  stepY = 1;
+                }
+                stepX = stepX+fromX;
+                stepY = stepY + fromY;
+                Gameboard.gameBoard[toX][toY] = Gameboard.gameBoard[fromX][fromY];
+                Gameboard.gameBoard[fromX][fromY] = 0;
+                Gameboard.gameBoard[stepX][stepY] = 0;
+                return true;
+              }
+              else{
+                return false;
+              }
+            }
+            else{
+              return false;
+            }
+          }
+          else{
+            return false;
+          }
+        }
+        else if(Gameboard.gameBoard[fromX][fromY] == 2 && c.equals("blue")){
+          if((toY-fromY) == 2 || (toY-fromY) == -2){
             if(((fromX-toX)==2)||((fromX-toX)==-2)){
               if(Gameboard.gameBoard[toX][toY]==0){
                 System.out.println(toX+""+toY);
@@ -140,32 +267,67 @@ Gameboard currentGameBoard = new Gameboard();
                   stepX = 1;
                 }
                 if((toY-fromY)<0){
-                  stepX = -1;
+                  stepY = -1;
                 }
                 else{
-                  stepX = 1;
+                  stepY = 1;
                 }
                 stepX = stepX+fromX;
                 stepY = stepY + fromY;
                 Gameboard.gameBoard[toX][toY] = Gameboard.gameBoard[fromX][fromY];
                 Gameboard.gameBoard[fromX][fromY] = 0;
                 Gameboard.gameBoard[stepX][stepY] = 0;
+                return true;
+              }
+              else{
+                return false;
               }
             }
+            else{
+              return false;
+            }
           }
-          return true;
+          else{
+            return false;
+          }
         }
-      else if(Gameboard.gameBoard[fromX][fromY] == -1){
-          if((fromY-toY) == 2){
+          else if(Gameboard.gameBoard[fromX][fromY] == -2 && c.equals("red")){
+          if((toY-fromY) == 2 || (toY-fromY) == -2){
             if(((fromX-toX)==2)||((fromX-toX)==-2)){
               if(Gameboard.gameBoard[toX][toY]==0){
+                System.out.println(toX+""+toY);
+                System.out.println(fromX+""+fromY);
+                if((toX-fromX)<0){
+                  stepX = -1;
+                }
+                else{
+                  stepX = 1;
+                }
+                if((toY-fromY)<0){
+                  stepY = -1;
+                }
+                else{
+                  stepY = 1;
+                }
+                stepX = stepX+fromX;
+                stepY = stepY + fromY;
                 Gameboard.gameBoard[toX][toY] = Gameboard.gameBoard[fromX][fromY];
                 Gameboard.gameBoard[fromX][fromY] = 0;
+                Gameboard.gameBoard[stepX][stepY] = 0;
+                return true;
+              }
+              else{
+                return false;
               }
             }
+            else{
+              return false;
+            }
           }
-        return true;
-      }
+          else{
+            return false;
+          }
+        }
       else{
         return false;
       } 

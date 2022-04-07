@@ -4,6 +4,7 @@ public class Main {
     Gameboard myBoard = new Gameboard();
     //Computer computer = new Computer();
     myBoard.drawBoard();
+    boolean checkV = true;
     boolean hasWon = false;
     String fromC;
     String toC;
@@ -59,7 +60,20 @@ public class Main {
           input = kb.nextLine();
           fromC = input.substring(0,2);
           toC = input.substring(2);
-          player1.move(fromC, toC);
+          while(checkV){
+            if(player1.move(fromC, toC, p1Color)){
+              player1.move(fromC, toC, p1Color);
+              checkV = false;
+            }
+            else{
+              System.out.println(p1Name+" Your move was invalid, please reenter your move");
+              input = kb.nextLine();
+              fromC = input.substring(0,2);
+              toC = input.substring(2);
+              checkV = true;
+            }
+          }
+          checkV = true;
           myBoard.drawBoard();
         }
         else{
@@ -67,7 +81,20 @@ public class Main {
           input = kb.nextLine();
           fromC = input.substring(0,2);
           toC = input.substring(2);
-          player2.move(fromC, toC);
+          while(checkV){
+            if(player2.move(fromC, toC, p2Color)){
+              player2.move(fromC, toC, p2Color);
+              checkV = false;
+            }
+            else{
+              System.out.println(p2Name+" Your move was invalid, please reenter your move");
+              input = kb.nextLine();
+              fromC = input.substring(0,2);
+              toC = input.substring(2);
+              checkV = true;
+            }
+          }
+          checkV = true;
           myBoard.drawBoard();
         }
         count++;
