@@ -1,67 +1,26 @@
-  // 1 is blue, -1 is red
-public class Piece2 {
-    Gameboard currentGameBoard = new Gameboard();
-    //private int xindex;
-    //private int yindex;
-    public String color;
-    public boolean isKing;
-    public boolean move(int fromX, int fromY, int toX, int toY) {
-        if(Gameboard.gameBoard[fromX][fromY] == 1){
-          if((toY-fromY) == 1){
-            if(((fromX-toX)==1)||((fromX-toX)==-1)){
-              if(Gameboard.gameBoard[toX][toY]==0){
-                Gameboard.gameBoard[toX][toY] = Gameboard.gameBoard[fromX][fromY];
-                Gameboard.gameBoard[fromX][fromY] = 0;
-              }
+if((Gameboard.gameBoard[row-2][col] >= 0) && (Gameboard.gameBoard[row+2][col] <= 7)){
+            if(Gameboard.gameBoard[row-1][col+1] < 0)               {
+              pieces.take(col, row, col-2, row+2, c);
+              check = true;
+              break;
+            }
+            else if(Gameboard.gameBoard[row+1][col+1] < 0){
+              pieces.take(col, row, col+2, row+2, c);
+              check = true;
+              break;
             }
           }
-          return true;
-        }
-      else if(Gameboard.gameBoard[fromX][fromY] == -1){
-          if((fromY-toY) == 1){
-            if(((fromX-toX)==1)||((fromX-toX)==-1)){
-              if(Gameboard.gameBoard[toX][toY]==0){
-                Gameboard.gameBoard[toX][toY] = Gameboard.gameBoard[fromX][fromY];
-                Gameboard.gameBoard[fromX][fromY] = 0;
-              }
+          else if(Gameboard.gameBoard[row-2][col] >= 0){
+            if(Gameboard.gameBoard[row-1][col+1] < 0)               {
+              pieces.take(col, row, col-2, row+2, c);
+              check = true;
+              break;
             }
           }
-        return true;
-      }
-      else{
-        return false;
-      }
-    }
-    public boolean take(int fromX, int fromY, int toX, int toY) {
-       if(Gameboard.gameBoard[fromX][fromY] == 1){
-          if((toY-fromY) == 2){
-            if(((fromX-toX)==2)||((fromX-toX)==-2)){
-              if(Gameboard.gameBoard[toX][toY]==0){
-                Gameboard.gameBoard[toX][toY] = Gameboard.gameBoard[fromX][fromY];
-                Gameboard.gameBoard[fromX][fromY] = 0;
-              }
+          else if(Gameboard.gameBoard[row+2][col] <= 7){
+            if(Gameboard.gameBoard[row+1][col+1] < 0){
+              pieces.take(col, row, col+2, row+2, c);
+              check = true;
+              break;
             }
           }
-          return true;
-        }
-      else if(Gameboard.gameBoard[fromX][fromY] == -1){
-          if((fromY-toY) == 2){
-            if(((fromX-toX)==2)||((fromX-toX)==-2)){
-              if(Gameboard.gameBoard[toX][toY]==0){
-                Gameboard.gameBoard[toX][toY] = Gameboard.gameBoard[fromX][fromY];
-                Gameboard.gameBoard[fromX][fromY] = 0;
-              }
-            }
-          }
-        return true;
-      }
-      else{
-        return false;
-      } 
-    }
-    /*public boolean doubleJump(int fromX, int fromY, int toX, int toY) {
-
-    }*/ 
-
-}
-

@@ -19,6 +19,57 @@ public class Player
   public String getName(){
     return currentPlayer;
   }
+  public boolean jump(String c){
+    boolean check = false;
+    for(int row = 0; row < Gameboard.gameBoard.length; row++){
+      for(int col = 0;col < Gameboard.gameBoard[row].length;col++){
+        if(Gameboard.gameBoard[row][col]==1){
+          try{
+            if(Gameboard.gameBoard[row-1][col+1] < 0){
+              System.out.println(row+"Blue"+ col);
+              pieces.take(col, row, col-2, row+2, c);
+              return true;
+            }
+            else if(Gameboard.gameBoard[row+1][col+1]<0){
+              System.out.println(row+"Blue"+ col);
+              pieces.take(col, row, col+2, row+2, c);
+              return true;
+            }
+            else{
+              check = false;
+            }
+          }
+          catch(Exception e){
+          }
+        }
+        else if(Gameboard.gameBoard[row][col]== -1){
+          try{
+            if(Gameboard.gameBoard[row-1][col-1] > 0){
+              System.out.println(row+"RED1"+ col);
+              pieces.take(col, row, col-2, row-2, c);
+              return true;
+            }
+            else if(Gameboard.gameBoard[row+1][col-1]>0){
+              System.out.println(row+"RED2"+ col);
+              pieces.take(col, row, col+2, row-2, c);
+              return true;
+            }
+            else{
+              check = false;
+            }
+          }
+          catch(Exception e){
+          }
+        }
+        else if(Gameboard.gameBoard[row][col]== 0){
+        }
+        else{
+          return false;
+        }
+      }
+    }
+    return check;
+  }
   public boolean move(String fromC, String toC, String Color){
     int fromX = (int) fromC.charAt(0);
     fromX -= 97;
