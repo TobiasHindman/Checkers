@@ -20,55 +20,48 @@ public class Player
     return currentPlayer;
   }
   public boolean jump(String c){
-    boolean check = false;
-    for(int row = 0; row < Gameboard.gameBoard.length; row++){
-      for(int col = 0;col < Gameboard.gameBoard[row].length;col++){
-        if(Gameboard.gameBoard[row][col]==1){
-          try{
-            if(Gameboard.gameBoard[row-1][col+1] < 0){
-              System.out.println(row+"Blue"+ col);
-              pieces.take(col, row, col-2, row+2, c);
+    boolean flag = false;
+    for(int col = 0; col < 8; col++){
+      for(int row = 0;row < 8; row++){
+        if(Gameboard.gameBoard[col][row] == 1){
+          if((col-2) > -1){
+            if(Gameboard.gameBoard[col-1][row+1] < 0 && Gameboard.gameBoard[col-2][row+2] == 0){
+              Gameboard.gameBoard[col-2][row+2] = 1;
+              Gameboard.gameBoard[col-1][row+1] = 0;
+              Gameboard.gameBoard[col][row] = 0;
               return true;
-            }
-            else if(Gameboard.gameBoard[row+1][col+1]<0){
-              System.out.println(row+"Blue"+ col);
-              pieces.take(col, row, col+2, row+2, c);
-              return true;
-            }
-            else{
-              check = false;
             }
           }
-          catch(Exception e){
-          }
-        }
-        else if(Gameboard.gameBoard[row][col]== -1){
-          try{
-            if(Gameboard.gameBoard[row-1][col-1] > 0){
-              System.out.println(row+"RED1"+ col);
-              pieces.take(col, row, col-2, row-2, c);
+          else if((col+2) < 8){
+            if(Gameboard.gameBoard[col+1][row+1] < 0 && Gameboard.gameBoard[col+2][row+2] == 0){
+              Gameboard.gameBoard[col+2][row+2] = 1;
+              Gameboard.gameBoard[col+1][row+1] = 0;
+              Gameboard.gameBoard[col][row] = 0;
               return true;
             }
-            else if(Gameboard.gameBoard[row+1][col-1]>0){
-              System.out.println(row+"RED2"+ col);
-              pieces.take(col, row, col+2, row-2, c);
-              return true;
-            }
-            else{
-              check = false;
-            }
-          }
-          catch(Exception e){
           }
         }
-        else if(Gameboard.gameBoard[row][col]== 0){
-        }
-        else{
-          return false;
+        else if(Gameboard.gameBoard[col][row] == -1){
+          if((col-2) > -1){
+            if(Gameboard.gameBoard[col-1][row-1] > 0 && Gameboard.gameBoard[col-2][row-2] == 0){
+              Gameboard.gameBoard[col-2][row-2] = -1;
+              Gameboard.gameBoard[col-1][row-1] = 0;
+              Gameboard.gameBoard[col][row] = 0;
+              return true;
+            }
+          }
+          else if((col+2) < 8){
+            if(Gameboard.gameBoard[col+1][row-1] > 0 && Gameboard.gameBoard[col+2][row-2] == 0){
+              Gameboard.gameBoard[col+2][row-2] = -1;
+              Gameboard.gameBoard[col+1][row-1] = 0;
+              Gameboard.gameBoard[col][row] = 0;
+              return true;
+            }
+          }
         }
       }
     }
-    return check;
+    return false;
   }
   public boolean move(String fromC, String toC, String Color){
     int fromX = (int) fromC.charAt(0);

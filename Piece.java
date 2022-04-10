@@ -185,7 +185,7 @@ Gameboard currentGameBoard = new Gameboard();
       int stepX = 0;
       int stepY = 0;
        if(Gameboard.gameBoard[fromX][fromY] == 1 && c.equals("blue")){
-          if((toY-fromY) == 2){
+          if((toY-fromY) == 2 && toY < 8 && toX < 8 && toX > -1){
             if(((fromX-toX)==2)||((fromX-toX)==-2)){
               if(Gameboard.gameBoard[toX][toY]==0){
                 if((toX-fromX)<0){
@@ -202,6 +202,9 @@ Gameboard currentGameBoard = new Gameboard();
                 }
                 stepX = stepX+fromX;
                 stepY = stepY + fromY;
+                if(Gameboard.gameBoard[stepX][stepY] > 0){
+                  return false;
+                }
                 Gameboard.gameBoard[toX][toY] = Gameboard.gameBoard[fromX][fromY];
                 Gameboard.gameBoard[fromX][fromY] = 0;
                 Gameboard.gameBoard[stepX][stepY] = 0;
@@ -219,7 +222,7 @@ Gameboard currentGameBoard = new Gameboard();
             return false;
           }
         }
-      else if(Gameboard.gameBoard[fromX][fromY] == -1 && c.equals("red")){
+      else if(Gameboard.gameBoard[fromX][fromY] == -1 && c.equals("red")&& toY > -1 && toX < 8 && toX > -1){
           if((toY-fromY) == -2){
             if(((fromX-toX)==2)||((fromX-toX)==-2)){
               if(Gameboard.gameBoard[toX][toY]==0){
@@ -237,6 +240,9 @@ Gameboard currentGameBoard = new Gameboard();
                 }
                 stepX = stepX+fromX;
                 stepY = stepY + fromY;
+                if(Gameboard.gameBoard[stepX][stepY] < 0){
+                  return false;
+                }
                 Gameboard.gameBoard[toX][toY] = Gameboard.gameBoard[fromX][fromY];
                 Gameboard.gameBoard[fromX][fromY] = 0;
                 Gameboard.gameBoard[stepX][stepY] = 0;
@@ -254,7 +260,7 @@ Gameboard currentGameBoard = new Gameboard();
             return false;
           }
         }
-        else if(Gameboard.gameBoard[fromX][fromY] == 2 && c.equals("blue")){
+        else if(Gameboard.gameBoard[fromX][fromY] == 2 && c.equals("blue") && toY < 8 && toY > -1 && toX < 8 && toX > -1){
           if((toY-fromY) == 2 || (toY-fromY) == -2){
             if(((fromX-toX)==2)||((fromX-toX)==-2)){
               if(Gameboard.gameBoard[toX][toY]==0){
@@ -274,6 +280,9 @@ Gameboard currentGameBoard = new Gameboard();
                 }
                 stepX = stepX+fromX;
                 stepY = stepY + fromY;
+                if(Gameboard.gameBoard[stepX][stepY] > 0){
+                  return false;
+                }
                 Gameboard.gameBoard[toX][toY] = Gameboard.gameBoard[fromX][fromY];
                 Gameboard.gameBoard[fromX][fromY] = 0;
                 Gameboard.gameBoard[stepX][stepY] = 0;
@@ -291,7 +300,7 @@ Gameboard currentGameBoard = new Gameboard();
             return false;
           }
         }
-          else if(Gameboard.gameBoard[fromX][fromY] == -2 && c.equals("red")){
+          else if(Gameboard.gameBoard[fromX][fromY] == -2 && c.equals("red")&& toY < 8 && toY > -1 && toX < 8 && toX > -1){
           if((toY-fromY) == 2 || (toY-fromY) == -2){
             if(((fromX-toX)==2)||((fromX-toX)==-2)){
               if(Gameboard.gameBoard[toX][toY]==0){
@@ -311,6 +320,9 @@ Gameboard currentGameBoard = new Gameboard();
                 }
                 stepX = stepX+fromX;
                 stepY = stepY + fromY;
+                if(Gameboard.gameBoard[stepX][stepY] <0){
+                  return false;
+                }
                 Gameboard.gameBoard[toX][toY] = Gameboard.gameBoard[fromX][fromY];
                 Gameboard.gameBoard[fromX][fromY] = 0;
                 Gameboard.gameBoard[stepX][stepY] = 0;

@@ -50,11 +50,17 @@ public class Main {
     if(player2.getName() != "c"){
       while(hasWon == false){
         if((count%2)==0){
-          if(player1.jump(p1Color) == true){
-            player1.jump(p1Color);
+          if(player1.jump(p1Color)){
             System.out.println(p1Name + " automatically jumped");
             myBoard.drawBoard();
-            count++;
+            try
+            {
+              Thread.sleep(500);
+            }
+            catch(InterruptedException ex)
+            {
+                Thread.currentThread().interrupt();
+            }
           }
           else{
           System.out.println(p1Name+" please enter the current coordinate of the piece you want to move");
@@ -77,15 +83,20 @@ public class Main {
           }
           checkV = true;
           myBoard.drawBoard();
-          count++;
           }
         }
-        else if((count%2)!=0){
+        else{
           if(player2.jump(p2Color)){
-            player2.jump(p2Color);
             System.out.println(p2Name + " automatically jumped");
             myBoard.drawBoard();
-            count++;
+            try
+            {
+              Thread.sleep(500);
+            }
+            catch(InterruptedException ex)
+            {
+                Thread.currentThread().interrupt();
+            }
           }
           else{
           System.out.println(p2Name+" please enter the current coordinate of the piece you want to move");
@@ -108,9 +119,9 @@ public class Main {
           }
           checkV = true;
           myBoard.drawBoard();
-          count++;
           }
         }
+        count++;
       }
     }
   }
