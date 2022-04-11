@@ -123,7 +123,7 @@ class makeBoard extends Component{//makeBoard class
           graph.setColor(Color.BLUE);
           graph.fillOval((row*50)+50,(col*50)+50,50,50);
           graph.setColor(Color.WHITE);
-          graph.drawString("K",(row*50)+75,(col*100)+75);
+          graph.drawString("K",(row*50)+75,(col*50)+75);
         }
       }
     }
