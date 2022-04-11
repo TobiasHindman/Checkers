@@ -2,10 +2,11 @@ import java.util.*;
 public class Main {
   public static void main(String[] args) {
     Gameboard myBoard = new Gameboard();
-    //Computer computer = new Computer();
+    Computer computer = new Computer();
     myBoard.drawBoard();
     boolean checkV = true;
     boolean hasWon = false;
+    boolean isComputer = false;
     String fromC;
     String toC;
     String input;
@@ -27,8 +28,12 @@ public class Main {
     else{
       p2Color = "red";
     }
-    System.out.println("Player 2, please enter your name, or press \"c\" to play a computer");
+    System.out.println("Player 2, please enter your name, or type \"computer\" to play a computer");
     p2Name = kb.nextLine();
+    if(p2Name.contains("comput")){
+      isComputer = true;
+      System.out.println("WHY");
+    }
     Player player2 = new Player(p2Name,p2Color);
     try
     {
@@ -47,7 +52,7 @@ public class Main {
     {
         Thread.currentThread().interrupt();
     }
-    if(player2.getName() != "c"){
+    if(!isComputer){
       while(hasWon == false){
         if((count%2)==0){
           if(player1.jump(p1Color)){
@@ -120,6 +125,51 @@ public class Main {
           checkV = true;
           myBoard.drawBoard();
           }
+        }
+        count++;
+      }
+    }
+    else{
+      while(hasWon == false){
+        if((count%2)==0){
+          if(player1.jump(p1Color)){
+            System.out.println(p1Name + " automatically jumped");
+            myBoard.drawBoard();
+            try
+            {
+              Thread.sleep(500);
+            }
+            catch(InterruptedException ex)
+            {
+                Thread.currentThread().interrupt();
+            }
+          }
+          else{
+          System.out.println(p1Name+" please enter the current coordinate of the piece you want to move");
+          fromC = kb.nextLine();
+          System.out.println(p1Name+" please enter the coordinate of where you want to move to");
+          toC = kb.nextLine();
+          while(checkV){
+            if(player1.move(fromC, toC, p1Color)){
+              player1.move(fromC, toC, p1Color);
+              checkV = false;
+            }
+            else{
+              System.out.println(p1Name+" Your move was invalid, please reenter your move\n");
+              System.out.println(p1Name+" please enter the current coordinate of the piece you want to move");
+          fromC = kb.nextLine();
+          System.out.println(p1Name+" please enter the coordinate of where you want to move to");
+          toC = kb.nextLine();
+              checkV = true;
+            }
+          }
+          checkV = true;
+          myBoard.drawBoard();
+          }
+        }
+        else{
+          computer.move(p2Color);
+          myBoard.drawBoard();
         }
         count++;
       }

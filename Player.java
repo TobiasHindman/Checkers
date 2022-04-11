@@ -9,7 +9,9 @@ public class Player
   private int numCheckers;
   boolean canMove = false;
   Piece pieces = new Piece();
-
+  public Player(){
+    
+  }
   public Player(String player, String color)
   {
     currentPlayer = player;
