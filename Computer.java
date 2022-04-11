@@ -77,6 +77,130 @@ public class Computer {
             }
           }
         }
+        else if(Gameboard.gameBoard[col][row] == 2){
+          if((col-1) > -1 && (row+1)<8){
+            if(Gameboard.gameBoard[col-1][row+1] == 0){
+              Gameboard.gameBoard[col-1][row+1] = 2;
+              Gameboard.gameBoard[col][row] = 0;
+              flag = false;
+              try
+              {
+                Thread.sleep(500);
+              }
+              catch(InterruptedException ex)
+              {
+                  Thread.currentThread().interrupt();
+              }
+            }
+          }
+          else if((col+1) < 8 && (row+1)<8){
+            if(Gameboard.gameBoard[col+1][row+1] == 0){
+              Gameboard.gameBoard[col+1][row+1] = 2;
+              Gameboard.gameBoard[col][row] = 0;
+              flag = false;
+              try
+              {
+                Thread.sleep(500);
+              }
+              catch(InterruptedException ex)
+              {
+                  Thread.currentThread().interrupt();
+              }
+            }
+          }
+          if((col-1) > -1 && (row-1)> -1){
+            if(Gameboard.gameBoard[col-1][row-1] == 0){
+              Gameboard.gameBoard[col-1][row-1] = 2;
+              Gameboard.gameBoard[col][row] = 0;
+              flag = false;
+              try
+              {
+                Thread.sleep(500);
+              }
+              catch(InterruptedException ex)
+              {
+                  Thread.currentThread().interrupt();
+              }
+            }
+          }
+          else if((col+1) < 8 && (row-1)>-1){
+            if(Gameboard.gameBoard[col+1][row-1] == 0){
+              Gameboard.gameBoard[col+1][row-1] = 2;
+              Gameboard.gameBoard[col][row] = 0;
+              flag = false;
+              try
+              {
+                Thread.sleep(500);
+              }
+              catch(InterruptedException ex)
+              {
+                  Thread.currentThread().interrupt();
+              }
+            }
+          }
+        }
+        else if(Gameboard.gameBoard[col][row] == -2){
+          if((col-1) > -1 && (row+1)<8){
+            if(Gameboard.gameBoard[col-1][row+1] == 0){
+              Gameboard.gameBoard[col-1][row+1] = -2;
+              Gameboard.gameBoard[col][row] = 0;
+              flag = false;
+              try
+              {
+                Thread.sleep(500);
+              }
+              catch(InterruptedException ex)
+              {
+                  Thread.currentThread().interrupt();
+              }
+            }
+          }
+          else if((col+1) < 8 && (row+1)<8){
+            if(Gameboard.gameBoard[col+1][row+1] == 0){
+              Gameboard.gameBoard[col+1][row+1] = -2;
+              Gameboard.gameBoard[col][row] = 0;
+              flag = false;
+              try
+              {
+                Thread.sleep(500);
+              }
+              catch(InterruptedException ex)
+              {
+                  Thread.currentThread().interrupt();
+              }
+            }
+          }
+          if((col-1) > -1 && (row-1)> -1){
+            if(Gameboard.gameBoard[col-1][row-1] == 0){
+              Gameboard.gameBoard[col-1][row-1] = -2;
+              Gameboard.gameBoard[col][row] = 0;
+              flag = false;
+              try
+              {
+                Thread.sleep(500);
+              }
+              catch(InterruptedException ex)
+              {
+                  Thread.currentThread().interrupt();
+              }
+            }
+          }
+          else if((col+1) < 8 && (row-1)>-1){
+            if(Gameboard.gameBoard[col+1][row-1] == 0){
+              Gameboard.gameBoard[col+1][row-1] = -2;
+              Gameboard.gameBoard[col][row] = 0;
+              flag = false;
+              try
+              {
+                Thread.sleep(500);
+              }
+              catch(InterruptedException ex)
+              {
+                  Thread.currentThread().interrupt();
+              }
+            }
+          }
+        }
       }
     }
   }

@@ -129,6 +129,210 @@ public class Player
             }
           }
         }
+        else if(Gameboard.gameBoard[col][row] == 2){
+          if((col-2) > -1 && (row+2)<8){
+            if(Gameboard.gameBoard[col-1][row+1] < 0 && Gameboard.gameBoard[col-2][row+2] == 0){
+              Gameboard.gameBoard[col-2][row+2] = 2;
+              Gameboard.gameBoard[col-1][row+1] = 0;
+              Gameboard.gameBoard[col][row] = 0;
+              while(flag){
+                if(doubleJump(col-2,row+2)){
+                  flag = true;
+                }
+                else{
+                  flag = false;
+                }
+              }
+              flag = true;
+              try
+              {
+                Thread.sleep(500);
+              }
+              catch(InterruptedException ex)
+              {
+                  Thread.currentThread().interrupt();
+              }
+              return true;
+            }
+          }
+          else if((col+2) < 8 && (row+2)<8){
+            if(Gameboard.gameBoard[col+1][row+1] < 0 && Gameboard.gameBoard[col+2][row+2] == 0){
+              Gameboard.gameBoard[col+2][row+2] = 2;
+              Gameboard.gameBoard[col+1][row+1] = 0;
+              Gameboard.gameBoard[col][row] = 0;
+              while(flag){
+                if(doubleJump(col+2,row+2)){
+                  flag = true;
+                }
+                else{
+                  flag = false;
+                }
+              }
+              flag = true;
+              try
+              {
+                Thread.sleep(500);
+              }
+              catch(InterruptedException ex)
+              {
+                  Thread.currentThread().interrupt();
+              }
+              return true;
+            }
+          }
+          else if((col+2) < 8 && (row-2)>-1){
+            if(Gameboard.gameBoard[col+1][row-1] < 0 && Gameboard.gameBoard[col+2][row-2] == 0){
+              Gameboard.gameBoard[col+2][row-2] = 2;
+              Gameboard.gameBoard[col+1][row-1] = 0;
+              Gameboard.gameBoard[col][row] = 0;
+              while(flag){
+                if(doubleJump(col+2,row-2)){
+                  flag = true;
+                }
+                else{
+                  flag = false;
+                }
+              }
+              flag = true;
+              try
+              {
+                Thread.sleep(500);
+              }
+              catch(InterruptedException ex)
+              {
+                  Thread.currentThread().interrupt();
+              }
+              return true;
+            }
+          }
+          else if((col-2) > -1 && (row-2) > -1){
+            if(Gameboard.gameBoard[col-1][row-1] < 0 && Gameboard.gameBoard[col-2][row-2] == 0){
+              Gameboard.gameBoard[col-2][row-2] = 2;
+              Gameboard.gameBoard[col-1][row-1] = 0;
+              Gameboard.gameBoard[col][row] = 0;
+              while(flag){
+                if(doubleJump(col-2,row-2)){
+                  flag = true;
+                }
+                else{
+                  flag = false;
+                }
+              }
+              flag = true;
+              try
+              {
+                Thread.sleep(500);
+              }
+              catch(InterruptedException ex)
+              {
+                  Thread.currentThread().interrupt();
+              }
+              return true;
+            }
+          }
+        }
+        else if(Gameboard.gameBoard[col][row] == -2){
+          if((col-2) > -1 && (row+2)<8){
+            if(Gameboard.gameBoard[col-1][row+1] > 0 && Gameboard.gameBoard[col-2][row+2] == 0){
+              Gameboard.gameBoard[col-2][row+2] = -2;
+              Gameboard.gameBoard[col-1][row+1] = 0;
+              Gameboard.gameBoard[col][row] = 0;
+              while(flag){
+                if(doubleJump(col-2,row+2)){
+                  flag = true;
+                }
+                else{
+                  flag = false;
+                }
+              }
+              flag = true;
+              try
+              {
+                Thread.sleep(500);
+              }
+              catch(InterruptedException ex)
+              {
+                  Thread.currentThread().interrupt();
+              }
+              return true;
+            }
+          }
+          else if((col+2) < 8 && (row+2)<8){
+            if(Gameboard.gameBoard[col+1][row+1] > 0 && Gameboard.gameBoard[col+2][row+2] == 0){
+              Gameboard.gameBoard[col+2][row+2] = -2;
+              Gameboard.gameBoard[col+1][row+1] = 0;
+              Gameboard.gameBoard[col][row] = 0;
+              while(flag){
+                if(doubleJump(col+2,row+2)){
+                  flag = true;
+                }
+                else{
+                  flag = false;
+                }
+              }
+              flag = true;
+              try
+              {
+                Thread.sleep(500);
+              }
+              catch(InterruptedException ex)
+              {
+                  Thread.currentThread().interrupt();
+              }
+              return true;
+            }
+          }
+          else if((col+2) < 8 && (row-2)>-1){
+            if(Gameboard.gameBoard[col+1][row-1] > 0 && Gameboard.gameBoard[col+2][row-2] == 0){
+              Gameboard.gameBoard[col+2][row-2] = -2;
+              Gameboard.gameBoard[col+1][row-1] = 0;
+              Gameboard.gameBoard[col][row] = 0;
+              while(flag){
+                if(doubleJump(col+2,row-2)){
+                  flag = true;
+                }
+                else{
+                  flag = false;
+                }
+              }
+              flag = true;
+              try
+              {
+                Thread.sleep(500);
+              }
+              catch(InterruptedException ex)
+              {
+                  Thread.currentThread().interrupt();
+              }
+              return true;
+            }
+          }
+          else if((col-2) > -1 && (row-2) > -1){
+            if(Gameboard.gameBoard[col-1][row-1] > 0 && Gameboard.gameBoard[col-2][row-2] == 0){
+              Gameboard.gameBoard[col-2][row-2] = -2;
+              Gameboard.gameBoard[col-1][row-1] = 0;
+              Gameboard.gameBoard[col][row] = 0;
+              while(flag){
+                if(doubleJump(col-2,row-2)){
+                  flag = true;
+                }
+                else{
+                  flag = false;
+                }
+              }
+              flag = true;
+              try
+              {
+                Thread.sleep(500);
+              }
+              catch(InterruptedException ex)
+              {
+                  Thread.currentThread().interrupt();
+              }
+              return true;
+            }
+          }
+        }
       }
     }
     return false;
@@ -182,6 +386,122 @@ public class Player
           else if((col+2) < 8 && (row-2)>-1 && Gameboard.gameBoard[col+1][row-1] > 0 && Gameboard.gameBoard[col+2][row-2] == 0){
               Gameboard.gameBoard[col+2][row-2] = -1;
               Gameboard.gameBoard[col+1][row-1] = 0;
+              Gameboard.gameBoard[col][row] = 0;
+              try
+              {
+                Thread.sleep(500);
+              }
+              catch(InterruptedException ex)
+              {
+                  Thread.currentThread().interrupt();
+              }
+              return true;
+          }
+    }
+    else if(Gameboard.gameBoard[col][row] == 2){
+      if((col-2) > -1 && (row-2)>-1 && Gameboard.gameBoard[col-1][row-1] < 0 && Gameboard.gameBoard[col-2][row-2] == 0){
+              Gameboard.gameBoard[col-2][row-2] = 2;
+              Gameboard.gameBoard[col-1][row-1] = 0;
+              Gameboard.gameBoard[col][row] = 0;
+              try
+              {
+                Thread.sleep(500);
+              }
+              catch(InterruptedException ex)
+              {
+                  Thread.currentThread().interrupt();
+              }
+              return true;
+          }
+          else if((col+2) < 8 && (row-2)>-1 && Gameboard.gameBoard[col+1][row-1] < 0 && Gameboard.gameBoard[col+2][row-2] == 0){
+              Gameboard.gameBoard[col+2][row-2] = 2;
+              Gameboard.gameBoard[col+1][row-1] = 0;
+              Gameboard.gameBoard[col][row] = 0;
+              try
+              {
+                Thread.sleep(500);
+              }
+              catch(InterruptedException ex)
+              {
+                  Thread.currentThread().interrupt();
+              }
+              return true;
+          }
+      if((col-2) > -1&& (row+2)<8 && Gameboard.gameBoard[col-1][row+1] < 0 && Gameboard.gameBoard[col-2][row+2] == 0){
+              Gameboard.gameBoard[col-2][row+2] = 2;
+              Gameboard.gameBoard[col-1][row+1] = 0;
+              Gameboard.gameBoard[col][row] = 0;
+              try
+              {
+                Thread.sleep(500);
+              }
+              catch(InterruptedException ex)
+              {
+                  Thread.currentThread().interrupt();
+              }
+              return true;
+          }
+          else if((col+2) < 8&& (row+2)<8 && Gameboard.gameBoard[col+1][row+1] < 0 && Gameboard.gameBoard[col+2][row+2] == 0){
+              Gameboard.gameBoard[col+2][row+2] = 2;
+              Gameboard.gameBoard[col+1][row+1] = 0;
+              Gameboard.gameBoard[col][row] = 0;
+              try
+              {
+                Thread.sleep(500);
+              }
+              catch(InterruptedException ex)
+              {
+                  Thread.currentThread().interrupt();
+              }
+              return true;
+          }
+    }
+    else if(Gameboard.gameBoard[col][row] == -2){
+      if((col-2) > -1 && (row-2)>-1 && Gameboard.gameBoard[col-1][row-1] > 0 && Gameboard.gameBoard[col-2][row-2] == 0){
+              Gameboard.gameBoard[col-2][row-2] = -2;
+              Gameboard.gameBoard[col-1][row-1] = 0;
+              Gameboard.gameBoard[col][row] = 0;
+              try
+              {
+                Thread.sleep(500);
+              }
+              catch(InterruptedException ex)
+              {
+                  Thread.currentThread().interrupt();
+              }
+              return true;
+          }
+          else if((col+2) < 8 && (row-2)>-1 && Gameboard.gameBoard[col+1][row-1] > 0 && Gameboard.gameBoard[col+2][row-2] == 0){
+              Gameboard.gameBoard[col+2][row-2] = -2;
+              Gameboard.gameBoard[col+1][row-1] = 0;
+              Gameboard.gameBoard[col][row] = 0;
+              try
+              {
+                Thread.sleep(500);
+              }
+              catch(InterruptedException ex)
+              {
+                  Thread.currentThread().interrupt();
+              }
+              return true;
+          }
+      if((col-2) > -1&& (row+2)<8 && Gameboard.gameBoard[col-1][row+1] > 0 && Gameboard.gameBoard[col-2][row+2] == 0){
+              Gameboard.gameBoard[col-2][row+2] = -2;
+              Gameboard.gameBoard[col-1][row+1] = 0;
+              Gameboard.gameBoard[col][row] = 0;
+              try
+              {
+                Thread.sleep(500);
+              }
+              catch(InterruptedException ex)
+              {
+                  Thread.currentThread().interrupt();
+              }
+              return true;
+          }
+          else if((col+2) < 8&& (row+2)<8 && Gameboard.gameBoard[col+1][row+1] > 0 && Gameboard.gameBoard[col+2][row+2] == 0){
+              Gameboard.gameBoard[col+2][row+2] = -2;
+              Gameboard.gameBoard[col+1][row+1] = 0;
               Gameboard.gameBoard[col][row] = 0;
               try
               {

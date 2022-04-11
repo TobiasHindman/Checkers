@@ -111,7 +111,32 @@ class makeBoard extends Component{
           graph.setColor(Color.RED);
           graph.fillOval((row*50)+50,(col*50)+50,50,50);
         }
+        else if(Gameboard.gameBoard[row][col]== -2){
+          graph.setColor(Color.RED);
+          graph.fillOval((row*50)+50,(col*50)+50,50,50);
+          graph.setColor(Color.WHITE);
+          graph.drawString("K",(row*50)+75,(col*50)+75);
+        }
+        else if(Gameboard.gameBoard[row][col]== 2){
+          graph.setColor(Color.BLUE);
+          graph.fillOval((row*50)+50,(col*50)+50,50,50);
+          graph.setColor(Color.WHITE);
+          graph.drawString("K",(row*50)+75,(col*100)+75);
+        }
       }
+    }
+    Gameboard newBoard = new Gameboard();
+    if(newBoard.checkWin() == "RED WINS"){
+      Font font1 = new Font("Serif", Font.PLAIN, 50);
+      graph.setFont(font1);
+      graph.setColor(Color.RED);
+      graph.drawString("RED WINS",100,250);
+    }
+    else if(newBoard.checkWin() == "BLUE WINS"){
+      Font font2 = new Font("Serif", Font.PLAIN, 50);
+      graph.setFont(font2);
+      graph.setColor(Color.BLUE);
+      graph.drawString("BLUE WINS",100,250);
     }
   }
 }

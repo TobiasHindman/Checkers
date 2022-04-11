@@ -32,7 +32,6 @@ public class Main {
     p2Name = kb.nextLine();
     if(p2Name.contains("comput")){
       isComputer = true;
-      System.out.println("WHY");
     }
     Player player2 = new Player(p2Name,p2Color);
     try
@@ -55,9 +54,19 @@ public class Main {
     if(!isComputer){
       while(hasWon == false){
         if((count%2)==0){
+          myBoard.checkKing();
+          myBoard.drawBoard();
           if(player1.jump(p1Color)){
             System.out.println(p1Name + " automatically jumped");
             myBoard.drawBoard();
+            if(myBoard.checkWin() == "RED WINS"){
+              hasWon = true;
+              System.exit(0);
+            }
+            else if(myBoard.checkWin() == "BLUE WINS"){
+              hasWon = true;
+              System.exit(0);
+            }
             try
             {
               Thread.sleep(500);
@@ -88,12 +97,30 @@ public class Main {
           }
           checkV = true;
           myBoard.drawBoard();
+          if(myBoard.checkWin() == "RED WINS"){
+              hasWon = true;
+              System.exit(0);
+            }
+            else if(myBoard.checkWin() == "BLUE WINS"){
+              hasWon = true;
+              System.exit(0);
+            }
           }
         }
         else{
+          myBoard.checkKing();
+          myBoard.drawBoard();
           if(player2.jump(p2Color)){
             System.out.println(p2Name + " automatically jumped");
             myBoard.drawBoard();
+            if(myBoard.checkWin() == "RED WINS"){
+              hasWon = true;
+              System.exit(0);
+            }
+            else if(myBoard.checkWin() == "BLUE WINS"){
+              hasWon = true;
+              System.exit(0);
+            }
             try
             {
               Thread.sleep(500);
@@ -124,6 +151,14 @@ public class Main {
           }
           checkV = true;
           myBoard.drawBoard();
+          if(myBoard.checkWin() == "RED WINS"){
+              hasWon = true;
+              System.exit(0);
+            }
+            else if(myBoard.checkWin() == "BLUE WINS"){
+              hasWon = true;
+              System.exit(0);
+            }  
           }
         }
         count++;
@@ -132,9 +167,19 @@ public class Main {
     else{
       while(hasWon == false){
         if((count%2)==0){
+          myBoard.checkKing();
+          myBoard.drawBoard();
           if(player1.jump(p1Color)){
             System.out.println(p1Name + " automatically jumped");
             myBoard.drawBoard();
+            if(myBoard.checkWin() == "RED WINS"){
+              hasWon = true;
+              System.exit(0);
+            }
+            else if(myBoard.checkWin() == "BLUE WINS"){
+              hasWon = true;
+              System.exit(0);
+            }
             try
             {
               Thread.sleep(500);
@@ -165,11 +210,29 @@ public class Main {
           }
           checkV = true;
           myBoard.drawBoard();
+          if(myBoard.checkWin() == "RED WINS"){
+              hasWon = true;
+              System.exit(0);
+            }
+            else if(myBoard.checkWin() == "BLUE WINS"){
+              hasWon = true;
+              System.exit(0);
+            }
           }
         }
         else{
+          myBoard.checkKing();
+          myBoard.drawBoard();
           computer.move(p2Color);
           myBoard.drawBoard();
+          if(myBoard.checkWin() == "RED WINS"){
+              hasWon = true;
+              System.exit(0);
+            }
+            else if(myBoard.checkWin() == "BLUE WINS"){
+              hasWon = true;
+              System.exit(0);
+            }
         }
         count++;
       }
