@@ -1,13 +1,13 @@
-import java.awt.*;
-class makeBoard extends Component{
-  public int[][] gameboard = new int[8][8];
-  makeBoard(int[][] gameBoard){
+import java.awt.*;//imports
+class makeBoard extends Component{//makeBoard class
+  public int[][] gameboard = new int[8][8];//creates the array
+  makeBoard(int[][] gameBoard){//gets the array to draw
     gameboard = gameBoard;
   }
-  public void paint(Graphics g)
+  public void paint(Graphics g)//create paint method
   {
-    Graphics2D graph = (Graphics2D)g;
-    Font font = new Font("Serif", Font.PLAIN, 20);
+    Graphics2D graph = (Graphics2D)g;//get Graphics2D
+    Font font = new Font("Serif", Font.PLAIN, 20);//set font
     graph.setFont(font);
     graph.setColor(Color.DARK_GRAY);
     graph.fillRect(0,0,500,500);
@@ -28,6 +28,7 @@ class makeBoard extends Component{
     graph.drawString("6",30,325);
     graph.drawString("7",30,375);
     graph.drawString("8",30,425);
+    //generate letters and number labels
     graph.setColor(Color.WHITE);
     graph.fillRect(50,50,50,50);
     graph.fillRect(150,50,50,50);
@@ -101,23 +102,24 @@ class makeBoard extends Component{
     graph.fillRect(200,400,50,50);
     graph.fillRect(300,400,50,50);
     graph.fillRect(400,400,50,50);
+    //generate the board
     for(int row = 0; row < gameboard.length; row++){
-      for(int col = 0;col < gameboard[row].length;col++)       {
-        if(gameboard[row][col]==1){
+      for(int col = 0;col < gameboard[row].length;col++){//iterate through the array
+        if(gameboard[row][col]==1){//generate blue pieces
           graph.setColor(Color.BLUE);
           graph.fillOval((row*50)+50,(col*50)+50,50,50);
         }
-        else if(gameboard[row][col]== -1){
+        else if(gameboard[row][col]== -1){//generate red pieces
           graph.setColor(Color.RED);
           graph.fillOval((row*50)+50,(col*50)+50,50,50);
         }
-        else if(Gameboard.gameBoard[row][col]== -2){
+        else if(Gameboard.gameBoard[row][col]== -2){//generate red kings
           graph.setColor(Color.RED);
           graph.fillOval((row*50)+50,(col*50)+50,50,50);
           graph.setColor(Color.WHITE);
           graph.drawString("K",(row*50)+75,(col*50)+75);
         }
-        else if(Gameboard.gameBoard[row][col]== 2){
+        else if(Gameboard.gameBoard[row][col]== 2){//generate blue kings
           graph.setColor(Color.BLUE);
           graph.fillOval((row*50)+50,(col*50)+50,50,50);
           graph.setColor(Color.WHITE);
@@ -126,13 +128,13 @@ class makeBoard extends Component{
       }
     }
     Gameboard newBoard = new Gameboard();
-    if(newBoard.checkWin() == "RED WINS"){
+    if(newBoard.checkWin() == "RED WINS"){//if there is a winner, draw RED win screen
       Font font1 = new Font("Serif", Font.PLAIN, 50);
       graph.setFont(font1);
       graph.setColor(Color.RED);
       graph.drawString("RED WINS",100,250);
     }
-    else if(newBoard.checkWin() == "BLUE WINS"){
+    else if(newBoard.checkWin() == "BLUE WINS"){//if there is a winner, draw BLUE win screen
       Font font2 = new Font("Serif", Font.PLAIN, 50);
       graph.setFont(font2);
       graph.setColor(Color.BLUE);
